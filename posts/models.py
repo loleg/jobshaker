@@ -21,22 +21,22 @@ class UserProfile(models.Model):
 		return self.nickname
 
 class Post(models.Model):
-	date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date published')
 	user = models.ForeignKey(UserProfile)
 	place = models.ForeignKey(Place)
 	intent = models.CharField(max_length=70)
 	comment = models.CharField(max_length=200)
 	def __unicode__(self):
-		return self.date
+		return self.pub_date
 	def was_published_today(self):
-		return self.date.date() == datetime.date.today()
+		return self.pub_date.date() == datetime.date.today()
 	
 class Reply(models.Model):
-	date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date replied')
 	user = models.ForeignKey(UserProfile)
 	post = models.ForeignKey(Post)
 	flag = models.BooleanField()
 	like = models.BooleanField()
 	comment = models.CharField(max_length=200)
 	def __unicode__(self):
-		return self.date
+		return self.pub_date

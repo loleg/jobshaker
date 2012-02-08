@@ -5,9 +5,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+	(r'^posts/$', 'posts.views.index'),
+	(r'^posts/(?P<post_id>\d+)/$', 'posts.views.detail'),
     # url(r'^$', 'jobshaker.views.home', name='home'),
     # url(r'^jobshaker/', include('jobshaker.foo.urls')),
+
+	# Login form
+	(r'^login/$', 'django.contrib.auth.views.login', 
+		{'template_name': 'posts/login.html'}),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

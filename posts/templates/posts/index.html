@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html> 
-<head> 
-  <title>Jobshaker</title> 
+{% extends "base.html" %}
 
-  <link href="{{ STATIC_URL }}/static/main.css" media="screen" rel="stylesheet" type="text/css" />
+{% block title %}{% endblock %}
 
-</head> 
-<body> 
- 
-  <h1 class="logo" onClick="document.location.href='/'">jobshaker</h1> 
-  
-  <h2 class="headline">find the right partner&nbsp;for&nbsp;job&nbsp;sharing or building&nbsp;your&nbsp;business</h2> 
-  
-  <div class="menu top">
-    <button class="create"><a href="/admin">Create profile</a></button>
-
-    <button class="login"><a href="/admin">Sign in</a></button>
-  </div> 
-  
-  <div class="container"> 
-
-    <div class="feed"> 
+{% block content %}
+<div class="feed"> 
 
   <h3>Freshest shakes</h3> 
   <div class="box">
@@ -41,15 +24,5 @@
 
   </div>
 
-    </div>
-  
-  </div> 
- 
-  <div class="menu bottom"> 
-    <button class="about"><em>about</em> jobshaker</button> 
-    <button class="links">useful <em>links</em></button> 
-    <button class="policy"><em>privacy</em> policy</button> 
-  </div> 
- 
-</body>
-</html>
+</div>
+{% endblock %}

@@ -20,9 +20,9 @@ button.policy { color:#88aa00; }
 
 h3 { font:20pt verdana,sans-serif; color:#aaa; margin:0; }
 
-.box { background:#999; border-radius:10pt; padding:4pt; }
+.box, .whitebox { background:#999; border-radius:10pt; padding:4pt; }
 
-.container { font:10pt verdana,sans-serif; line-height:1.5em; }
+.container, .container input { font:10pt verdana,sans-serif; line-height:1.5em; }
 
 item, tr { background:#dbe3db; 
        border:3px solid #eee; border-radius:4pt; text-align:left;
@@ -31,6 +31,7 @@ item, tr { background:#dbe3db;
 item, item date { display:block; } 
 
 th, td { padding:2pt; margin:0; vertical-align:top; border:none; font-size:140%; }
-input { width:80%; }
 th { background-color:#fe9; text-align:right; }
+table input { width:80%; }
 
+.whitebox { background:#fff; margin:4pt; }
