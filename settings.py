@@ -11,6 +11,8 @@ MANAGERS = ADMINS
 
 AUTH_PROFILE_MODULE = 'posts.UserProfile'
 
+ACCOUNT_ACTIVATION_DAYS = 7
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -121,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+	'registration',
 	'posts'
 )
 
