@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <title>Jobshaker</title> 
+
+  <link href="{{ STATIC_URL }}/static/main.css" media="screen" rel="stylesheet" type="text/css" />
+
+</head> 
+<body> 
+ 
+  <h1 class="logo" onClick="document.location.href='/'">jobshaker</h1> 
+  
+  <h2 class="headline">find the right partner&nbsp;for&nbsp;job&nbsp;sharing or building&nbsp;your&nbsp;business</h2> 
+  
+  <div class="menu top">
+    <button class="create"><a href="/admin">Create profile</a></button>
+
+    <button class="login"><a href="/admin">Sign in</a></button>
+  </div> 
+  
+  <div class="container"> 
+
+    <div class="feed"> 
+
+  <h3>Freshest shakes</h3> 
+  <div class="box">
+
+{% if latest_post_list %}
+	{% for post in latest_post_list %}
+		<a href="/posts/{{ post.id }}/"><item> 
+			<date>{{ post.pub_date }}</date> 
+			A <b>{{ post.user.profession.name }}</b> 
+			would like to 
+			{{ post.intent }}
+			in the area of <b>{{ post.place.name }}</b> 
+		</item></a>
+	{% endfor %}
+{% else %}
+	<p>No posts today.</p>
+{% endif %}
+
+  </div>
+
+    </div>
+  
+  </div> 
+ 
+  <div class="menu bottom"> 
+    <button class="about"><em>about</em> jobshaker</button> 
+    <button class="links">useful <em>links</em></button> 
+    <button class="policy"><em>privacy</em> policy</button> 
+  </div> 
+ 
+</body>
+</html>
