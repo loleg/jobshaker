@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}- {{ userprofile.nickname }}{% endblock %}
+
+{% block content %}
+<h3>Jobshaker Profile
+	<a href="/accounts/edit/"><button>EDIT</button></a>
+	</h3>
+<div class="box"><div class="whitebox">
+	<h4>My info</h4>
+	<p>Nickname: {{ userprofile.nickname }}</p>
+	<p>Location: {{ userprofile.location }}</p>
+	<p>Profession: {{ userprofile.profession }}</p>
+</div><div class="whitebox">
+	<h4>Photo</h4>
+	<img src="http://0.gravatar.com/avatar/00e1dd94340133b9daf6e291fb766266?s=100&r=pg&d=mm">
+</div><div class="whitebox">
+	<h4>Account</h4>
+	<p>Name: {{ userprofile.user.first_name }} {{ userprofile.user.last_name }}</p>
+	<p>Login: {{ userprofile.user }}</p>
+	<p>Email: {{ userprofile.user.email }}</p>
+</div></div>
+{% endblock %}

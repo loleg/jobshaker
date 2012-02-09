@@ -14,6 +14,9 @@ urlpatterns = patterns('',
     # url(r'^jobshaker/', include('jobshaker.foo.urls')),
 
 	# Profile
+	(r'^accounts/profile/(?P<user_id>\d+)/$', 'posts.views.profile'),
+	(r'^accounts/profile/$', 'posts.views.my_profile'),
+	(r'^accounts/edit/$', 'posts.views.edit_profile'),
 	#(r'^users/(?P<user_username>\d+)/$', 'users.views.detail'),
 
 	# Login form
