@@ -10,10 +10,9 @@
 
 {% if latest_post_list %}
 	{% for post in latest_post_list %}
-		<a href="/posts/{{ post.id }}/"><item> 
+		<a href="/posts/{{ post.id }}/" class="post"><item> 
 			<date>{{ post.pub_date }}</date> 
-			A <b>{{ post.user.profession.name }}</b> 
-			would like to 
+			A <b>{{ post.user.profession.name }}</b> is
 			{{ post.intent }}
 			in the area of <b>{{ post.place.name }}</b> 
 		</item></a>
