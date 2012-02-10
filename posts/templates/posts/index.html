@@ -10,14 +10,18 @@
 
 {% if latest_post_list %}
 	{% for post in latest_post_list %}
-		<a href="/posts/{{ post.id }}/" class="post"><item> 
-			<date>{{ post.pub_date }}</date> 
-			A <b>{{ post.user.profession.name }}</b> is
+		<item class="post"> 
+			<date>{{ post.pub_date }}</date>
+			<a href="/userprofile/{{ post.user.id }}/">
+			<b>{{ post.user.profession.name }}</b></a>
+			looking for a
+			<a href="/posts/{{ post.id }}/" class="post">
 			{{ post.intent }}
 			{% if place %}
 				in <b>{{ place }}</b> 
 			{% endif %}
-		</item></a>
+			</a>
+		</item>
 	{% endfor %}
 {% else %}
 	<p>No posts today.</p>

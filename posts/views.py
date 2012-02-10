@@ -38,7 +38,7 @@ def add(request):
 		post.save()
 		return redirect('/posts/%d' % post.id)
 	# Populate form
-	form.initial['postcode'] = u.postcode
+	form.initial['postcode'] = up.postcode
 	return render_to_response('posts/edit_post.html', {
 			'form': form
 		}, context_instance=RequestContext(request))
@@ -81,6 +81,14 @@ def my_profile(request):
 		return profile(request, up.id)
 	except UserProfile.DoesNotExist:
 		return edit_profile(request)
+
+def my_replies(request):
+	up = get_object_or_404(UserProfile, user=request.user.id)
+	return render_to_response('user/replies.html', {
+			'userprofile': up,
+			'posts': Post.objects.filter(user=up),
+			'replies': Reply.objects.all(), # TODO: filter down to relevant replies
+		}, context_instance=RequestContext(request))
 			
 def profile(request, userprofile_id):
 	up = get_object_or_404(UserProfile, pk=userprofile_id)

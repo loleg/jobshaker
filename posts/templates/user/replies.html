@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load mytags %}
+
+{% block title %}- replies{% endblock %}
+
+{% block content %}
+<h3>Jobshaker Replies</h3>
+{% for p in posts %}
+<div class="box"><div class="whitebox">
+	<date>{{ p.pub_date }}</date><br>
+	<a href="/posts/{{ p.id }}">{{ p.intent }}</a>
+	<ul class="replies">
+	{% for reply in replies %}
+		{% ifequal p.id reply.post.id %}
+			<li>
+				{% if reply.like %}
+					<b>:)</b> 
+				{% endif %}
+				{% if reply.flag %}
+					<b>:(</b> 
+				{% endif %}
+				<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
+				"{{ reply.comment }}"
+			</li>
+		{% endifequal %}
+	{% endfor %}
+	</ul>
+</div>
+{% endfor %}
+{% if posts|length == 0 %}
+	You haven't started any jobshakes, why don't you do that 
+	<a href="/userprofile/">in your profile</a>?
+{% endif %}
+{% endblock %}

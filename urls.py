@@ -20,6 +20,7 @@ urlpatterns = patterns('',
 
 	# Profile
 	(r'^userprofile/(?P<userprofile_id>\d+)/$', 'posts.views.profile'),	
+	(r'^userprofile/replies/$', 'posts.views.my_replies'),
 	(r'^userprofile/$', 'posts.views.my_profile'),
 	(r'^accounts/profile/(?P<user_id>\d+)/$', 'posts.views.user'),
 	(r'^accounts/edit/$', 'posts.views.edit_profile'),

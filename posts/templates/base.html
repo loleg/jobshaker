@@ -15,12 +15,17 @@
   
   <div class="menu top">
 	{% if user.is_authenticated %}
-		Hoi, {{ user.username }}!
+		<a href="/">
+	    	<button class="links">Home</button>
+		</a>
+		<span class="greets">
+			Hoi, {{ user.username }}!
+		</span>
 		<a href="/userprofile">
 	    	<button class="create">My profile</button>
 		</a>
-		<a href="/">
-	    	<button class="login">Home</button>
+		<a href="/userprofile/replies">
+	    	<button class="login">My replies</button>
 		</a>
 	{% else %}
 		<a href="/accounts/register">

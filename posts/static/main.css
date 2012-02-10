@@ -8,6 +8,8 @@ body { background-color:#fff; text-align:center; }
 
 .menu { margin:1em 0; }
 
+.greets { font:16pt verdana,sans-serif; color:green; background:yellow; padding:2px; }
+
 button { font-size:16pt; }
 button em { font-style:normal; font-weight:bold; }
 .menu a { color:inherit; text-decoration:none; }
@@ -26,7 +28,7 @@ h3 { font:20pt verdana,sans-serif; color:#aaa; margin:0; }
 
 .container, .container input { font:10pt verdana,sans-serif; line-height:1.5em; }
 
-.post { display:inline-block; width:25%; }
+.post { display:inline-block; width:200pt; }
 
 item, tr { background:#dbe3db; 
        border:3px solid #eee; border-radius:4pt; text-align:left;
