@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load mytags %}
 
 {% block title %}- {{ post.intent }}{% endblock %}
 
@@ -8,14 +9,37 @@
 	<date>{{ post.pub_date }}</date> 
 	A <b>{{ post.user.profession.name }}</b> is
 	{{ post.intent }}
-	{% if place %}
+	{% if where %}
 		in <b>{{ where }}</b> 
+	{% endif %}
+	{% if my_post %}
+		<a href="/posts/{{ post.id }}/edit">
+			<button class="edit">Edit</button>
+		</a>
 	{% endif %}
 <hr>
 	<p>{{ post.comment }}</p>
+	<a href="/posts/{{ post.id }}/reply">
+		<button class="reply">Reply</button>
+	</a>
+	<ul class="replies">
+	{% for reply in replies %}
+		<li>
+			{% if reply.like %}
+				<b>:)</b> 
+			{% endif %}
+			{% if reply.flag %}
+				<b>:(</b> 
+			{% endif %}
+			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
+			"{{ reply.comment }}"
+		</li>
+	{% endfor %}
+	</ul>
 <hr>
-	<img src="http://0.gravatar.com/avatar/00e1dd94340133b9daf6e291fb766266?s=100&r=pg&d=mm" align="left" hspace="10">
-	Posted by <a href="/accounts/profile/{{ post.user.id }}">{{ post.user }}</a><br>
+	{% show_gravatar post.user.user.email 64 %}
+	
+	Posted by <a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a><br>
 	{{ post.user.profession }} in 
 	{% if place %}
 		in <b>{{ place }}</b> 

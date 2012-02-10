@@ -6,16 +6,22 @@ admin.autodiscover()
 urlpatterns = patterns('',
 	# Default
 	(r'^$', 'posts.views.index'),
+	(r'^users/.+$', 'posts.views.index'),
 
 	# Posts
 	(r'^posts/$', 'posts.views.index'),
+	(r'^posts/new$', 'posts.views.add'),
 	(r'^posts/(?P<post_id>\d+)/$', 'posts.views.detail'),
+	(r'^posts/(?P<post_id>\d+)/edit$', 'posts.views.edit'),
+	(r'^posts/(?P<post_id>\d+)/reply$', 'posts.views.reply'),
+
     # url(r'^$', 'jobshaker.views.home', name='home'),
     # url(r'^jobshaker/', include('jobshaker.foo.urls')),
 
 	# Profile
-	(r'^accounts/profile/(?P<user_id>\d+)/$', 'posts.views.profile'),
-	(r'^accounts/profile/$', 'posts.views.my_profile'),
+	(r'^userprofile/(?P<userprofile_id>\d+)/$', 'posts.views.profile'),	
+	(r'^userprofile/$', 'posts.views.my_profile'),
+	(r'^accounts/profile/(?P<user_id>\d+)/$', 'posts.views.user'),
 	(r'^accounts/edit/$', 'posts.views.edit_profile'),
 	#(r'^users/(?P<user_username>\d+)/$', 'users.views.detail'),
 

@@ -10,15 +10,8 @@
 
 <form method="post" action="{% url 'posts.views.edit_profile' %}">
 {% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.nickname.label_tag }}</td>
-    <td>{{ form.nickname }}</td>
-</tr>
-</table>
-
-<input type="submit" value="SAVE" />
-<input type="hidden" name="next" value="{{ next }}" />
+{{ form.as_p }}
+<input type="submit" value="Save my profile" />
 </form>
 
 </div></div>

@@ -35,7 +35,7 @@ class UserProfile(models.Model):
 
 class Post(models.Model):
 	pub_date = models.DateTimeField('date published', auto_now_add=True)
-	user = models.ForeignKey(UserProfile)
+	user = models.ForeignKey(UserProfile, editable=False)
 	postcode = models.IntegerField(blank=True, null=True)
 	distance = models.IntegerField(blank=True, null=True)
 	intent = models.ForeignKey(Intent)
@@ -49,10 +49,10 @@ class Post(models.Model):
 	
 class Reply(models.Model):
 	pub_date = models.DateTimeField('date replied', auto_now_add=True)
-	user = models.ForeignKey(UserProfile)
-	post = models.ForeignKey(Post)
+	user = models.ForeignKey(UserProfile, editable=False)
+	post = models.ForeignKey(Post, editable=False)
 	flag = models.BooleanField()
 	like = models.BooleanField()
 	comment = models.TextField()
 	def __unicode__(self):
-		return self.pub_date
+		return self.comment
