@@ -14,7 +14,9 @@
 			<date>{{ post.pub_date }}</date> 
 			A <b>{{ post.user.profession.name }}</b> is
 			{{ post.intent }}
-			in the area of <b>{{ post.place.name }}</b> 
+			{% if place %}
+				in <b>{{ place }}</b> 
+			{% endif %}
 		</item></a>
 	{% endfor %}
 {% else %}

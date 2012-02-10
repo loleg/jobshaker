@@ -13,10 +13,13 @@ def index(request):
 def detail(request, post_id):
 	try:
 		p = Post.objects.get(pk=post_id)
+		l = ''
+		if p.postcode:
+			l = plzdict[p.postcode]
 	except Post.DoesNotExist:
 		raise Http404
 	return render_to_response('posts/detail.html', {
-			'post': p,
+			'post': p, 'place': l
 		})
 
 def my_profile(request):

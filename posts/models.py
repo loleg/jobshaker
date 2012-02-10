@@ -4,8 +4,8 @@ import datetime
 
 class Intent(models.Model):
 	name = models.CharField(max_length=70)
-	icon = models.CharField(max_length=99)
-	back = models.CharField(max_length=99)
+	icon = models.CharField(max_length=99, blank=True, null=True)
+	back = models.CharField(max_length=99, blank=True, null=True)
 	def __unicode__(self):
 		return self.name
 
@@ -23,20 +23,24 @@ class UserProfile(models.Model):
 	german = models.BooleanField()
 	french = models.BooleanField()
 	italian = models.BooleanField()
-	other_lang = models.CharField('other languages', max_length=70)
-	age = models.IntegerField()
-	sex = models.CharField(max_length=1)
+	other_lang = models.CharField('other languages', max_length=70, blank=True, null=True)
+	age = models.IntegerField(blank=True, null=True)
+	GENDER_CHOICES = (
+	        (u'M', u'Male'),
+	        (u'F', u'Female'),
+	    )
+	sex = models.CharField(max_length=2, choices=GENDER_CHOICES, blank=True, null=True)
 	def __unicode__(self):
 		return self.nickname
 
 class Post(models.Model):
 	pub_date = models.DateTimeField('date published', auto_now_add=True)
 	user = models.ForeignKey(UserProfile)
-	postcode = models.IntegerField()
-	distance = models.IntegerField()
+	postcode = models.IntegerField(blank=True, null=True)
+	distance = models.IntegerField(blank=True, null=True)
 	intent = models.ForeignKey(Intent)
-	valid_from = models.DateField('from') 
-	valid_until = models.DateField('until') 
+	valid_from = models.DateField('from', blank=True, null=True) 
+	valid_until = models.DateField('until', blank=True, null=True) 
 	comment = models.TextField()
 	def __unicode__(self):
 		return self.intent.name
