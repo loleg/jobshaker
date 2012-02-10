@@ -14,12 +14,22 @@
   <h2 class="headline">find the right partner&nbsp;for&nbsp;job&nbsp;sharing or building&nbsp;your&nbsp;business</h2> 
   
   <div class="menu top">
-	<a href="/accounts/register">
-    	<button class="create">Create profile</button>
-	</a>
-	<a href="/login">
-    	<button class="login">Sign in</button>
-	</a>
+	{% if user.is_authenticated %}
+		Hoi, {{ user.username }}!
+		<a href="/accounts/profile">
+	    	<button class="create">My profile</button>
+		</a>
+		<a href="/">
+	    	<button class="login">Home</button>
+		</a>
+	{% else %}
+		<a href="/accounts/register">
+	    	<button class="create">Create profile</button>
+		</a>
+		<a href="/login">
+	    	<button class="login">Sign in</button>
+		</a>
+	{% endif %}
   </div> 
   
   <div class="container" id="content"> 
