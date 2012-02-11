@@ -19,7 +19,7 @@
 	    	<button class="links">Home</button>
 		</a>
 		<span class="greets">
-			Hoi, {{ user.username }}!
+			Hello {{ user.username }}!
 		</span>
 		<a href="/userprofile">
 	    	<button class="create">My profile</button>
@@ -28,12 +28,31 @@
 	    	<button class="login">My replies</button>
 		</a>
 	{% else %}
-		<a href="/accounts/register">
-	    	<button class="create">Create profile</button>
-		</a>
-		<a href="/login">
-	    	<button class="login">Sign in</button>
-		</a>
+	  <div class="infotext"> 
+		<p>Do you want to shake up your career? Find a better way to balance professional, family and personal interests? Or realize your own ideas and plans? <br />  
+		<b>Jobshaker</b> connects you to like-minded people in Switzerland. It helps you to find partners for job-sharing, &nbsp;to build and grow a business&nbsp;or&nbsp;to work together on a project&nbsp;.
+		</p> 
+	  </div>
+	
+	  <div class="signup">
+		<div>Sign-up now for <b>free</b> to create a profile, search for like-minded members and connect.</div>
+		<div>
+		  <a href="/accounts/register">
+			<button class="create">Register</button>
+		  </a>
+		</div>
+		<div></div>
+	  </div>
+	  
+	  <div class="login">
+		  <div>Already registered?</div>
+		  <div>
+			<a href="/login">
+				<button class="login">Login</button>
+			</a>
+		  </div>
+		  <div></div>
+	  </div>
 	{% endif %}
   </div> 
   
@@ -43,7 +62,7 @@
   
   </div> 
  
-  <div class="menu bottom"> 
+  <div class="footer"> 
     <button class="about"><em>about</em> jobshaker</button> 
     <button class="links">useful <em>links</em></button> 
     <button class="policy"><em>privacy</em> policy</button> 
