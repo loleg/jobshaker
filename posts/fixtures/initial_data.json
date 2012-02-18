@@ -1,0 +1,4 @@
+[{"pk": 1, "model": "sites.site", "fields": {"domain": "Jobshaker", "name": "jobshaker.ch"}}, 
+ {"pk": 1, "model": "posts.intent", "fields": {"back": "", "name": "looking for a business partner", "icon": ""}}, 
+ {"pk": 2, "model": "posts.intent", "fields": {"back": "", "name": "interested in sharing a job", "icon": ""}}, 
+ {"pk": 3, "model": "posts.intent", "fields": {"back": "", "name": "needs people for a project", "icon": ""}}]
