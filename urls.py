@@ -37,9 +37,9 @@ urlpatterns = patterns('',
 	(r'^accounts/', include('registration.backends.simple.urls')),
 	
 	# Static pages
-	('^about/$', direct_to_template, { 'template': 'pages/about.html'}),
-	('^links/$', direct_to_template, { 'template': 'pages/links.html'}),
-	
+	('^about/$',  direct_to_template, { 'template': 'pages/about.html'}),
+	('^links/$',  direct_to_template, { 'template': 'pages/links.html'}),
+	('^policy/$', direct_to_template, { 'template': 'pages/privacy.html'}),
 	
 	# Uncomment the admin/doc line below to enable admin documentation:
 	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

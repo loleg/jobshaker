@@ -47,7 +47,7 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 
 .whitebox { background:#fff; margin:4pt; margin-bottom:8pt; text-align:center; vertical-align:top; display:inline-block; }
 
-.whitebox p { text-align:left; }
+.whitebox p, .whitebox ul { text-align:left; }
 
 .container, .container input { font:10pt verdana,sans-serif; line-height:1.5em;}
 
