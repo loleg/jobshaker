@@ -3,36 +3,37 @@
 {% block title %}{% endblock %}
 
 {% block content %}
+<div class="index">
+
 	{% if not user.is_authenticated %}
 	  <div class="infotext"> 
-		<p>Do you want to shake up your career? Find a better way to balance professional, family and personal interests? Or realize your own ideas and plans? <br />  
-		<b>Jobshaker</b> connects you to like-minded people in Switzerland. It helps you to find partners for job-sharing, &nbsp;to build and grow a business&nbsp;or&nbsp;to work together on a project&nbsp;.
-		</p> 
+		  <p>Do you want to shake up your career? Find a better way to balance professional, family and personal interests? Or realize your own ideas and plans? <b>Jobshaker</b>&nbsp;connects&nbsp;you to like-minded people in Switzerland. It helps you to find partners for job-sharing, to build and grow a business or to work together on a project.
+		  </p> 
 	  </div>
 	
 	  <div class="signup">
-		<div>Sign-up now for <b>free</b> to create a profile, search for like-minded members and connect.</div>
-		<div>
-		  <a href="/accounts/register">
-			<button class="create">Register</button>
-		  </a>
-		</div>
-		<div></div>
+		  <div>Sign-up now for <b>free</b> to create a profile, search for like-minded members and connect.</div>
+		  <div>
+		    <a href="/accounts/register">
+			  <button class="create">Register</button>
+		    </a>
+		  </div>
+		  <div></div>
 	  </div>
 	  
 	  <div class="login">
 		  <div>Already registered?</div>
 		  <div>
-			<a href="/login">
-				<button class="login">Login</button>
-			</a>
+			  <a href="/login">
+				  <button class="login">Login</button>
+			  </a>
 		  </div>
 		  <div></div>
 	  </div>
-	{% endif %}
-
-
-<div class="feed"> 
+	  
+	{% else %}
+	
+  <div class="feed"> 
 
   <h2>Freshest shakes</h2> 
   <div class="box">
@@ -57,6 +58,8 @@
 {% endif %}
 
   </div>
+	
+	{% endif %}
 
 </div>
 {% endblock %}

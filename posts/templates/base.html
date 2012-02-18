@@ -20,22 +20,19 @@
 		<a href="/">
 	    	<button class="links">Home</button>
 		</a>
-		<span class="greets">
-			Hello {{ user.username }}!
-		</span>
+		<a href="/userprofile/replies">
+	    	<button class="posts">My posts</button>
+		</a>
 		<a href="/userprofile">
 	    	<button class="profile">My profile</button>
 		</a>
-		<a href="/userprofile/replies">
-	    	<button class="replies">My replies</button>
-		</a>
 	{% else %}
-		<a href="/accounts/register">
+<!--		<a href="/accounts/register">
 			<button class="create">Register</button>
 		</a>
    	<a href="/login">
 		  <button class="login">Login</button>
-		</a>
+		</a> -->
 	{% endif %}
   </div> 
   
@@ -45,7 +42,7 @@
   
   </div> 
  
-  <div class="footer"> 
+  <div class="menu footer"> 
     <button class="about"><a href="about/"><em>about</em> jobshaker</a></button> 
     <button class="links"><a href="links/">useful <em>links</em></a></button> 
     <button class="policy"><a href="privacy/"><em>privacy</em> policy</a></button> 

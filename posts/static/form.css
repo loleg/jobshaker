@@ -1,6 +1,15 @@
+form {
+	border:0;
+ 	background-color: #FFF;
+	border-radius: 5px;
+	padding:15px 0 0 0;
+	margin:0 auto;
+	position: relative;
+}
+
 fieldset { 
 	padding:0 40px 35px 50px;	
-	margin:0;
+	margin:0; text-align:left;
 	border:0px solid transparent;
 } 
 	
@@ -9,41 +18,23 @@ fieldset ul {
 	padding:15px 0 0 0;
 	list-style-type: none;
 }
-form {
-	border:0;
-  	background-color: #FFF;
-	width:400px;
-	border-radius: 5px;
-	padding:15px 0 0 0;
-	margin:0 auto;
-	position: relative;
-}
+
 fieldset p {
-	float:left;
 	margin:0 0 12px 0;
-	padding:0;
-	text-align: left;
-	width:400px;		
+	padding:0 0 1.8em;
+	clear:both;
 }
-
-.language p { margin:0;}
-.language label { font-weight:normal; }
-.language input { width:auto;}
-
-#id_other_lang { margin-bottom:1em; }
-#id_birth_year, #id_postcode { width:3em; }
-#id_aboutme { width:auto; }
 
 fieldset label { 
 	float:left;
 	line-height:167%;
 	font-weight:bold;
-	width:100px;
+	width:140px;
 	cursor: pointer;
 	position:relative;	
 }
 
-fieldset input {
+fieldset p input {
 	float:left;
 	height:20px;
 	width: 200px; 	
@@ -51,30 +42,6 @@ fieldset input {
 	padding:0;
 	background:#FFF;
 	border-radius: 2px;
-}
-
-input.btnCancel, 
-input.btnSend {
-	margin: 25px 0 0 0;
-	float:left;
-	width:85px;
-	height:30px;
-	font-weight:bold;
-	color: #FFF;
-	text-align: center;
-	padding:0 0 2px 0;
-	text-indent:0px;
-	border:1px solid #4C332E;
-	background-color:#4C332E;
-	cursor:pointer;
-  	box-shadow: inset 0px 0px 0px;	
-}
-input.btnSend  {
-	float:right;
-	margin-right:100px;
-	border:1px solid #4C332E;  
-	box-shadow:1px 1px 2px #ccc;
-	background:#ED581E;
 }
 
 fieldset legend {
@@ -86,10 +53,31 @@ fieldset legend {
 	border-radius: 5px;
 	box-shadow:1px 1px 2px #ccc;
 	background-color:#a77;
-	float: left;
 }	
 
-#id_aboutme {
-	width: auto;
-	height: 5em;
+.language p { padding:0; }
+.language label { font-weight:normal; }
+.language input { width:auto;}
+
+#id_other_lang { margin-bottom:1em; }
+#id_birth_year, #id_postcode { width:3em; }
+#id_aboutme { width:auto; height:5em; }
+
+input.btnCancel, 
+input.btnSend {
+	margin: 25px 0 0 0;
+	padding:0 0 2px 0;
+	width:85px; height:30px;
+	font-weight:bold;	text-align: center;	text-indent:0px;
+	color: #FFF; border:1px solid #4C332E;
+	background-color:#4C332E;
+	cursor:pointer; box-shadow: inset 0px 0px 0px;	
 }
+input.btnSend  {
+	float:right;
+	margin-right:100px;
+	border:1px solid #4C332E;  
+	box-shadow:1px 1px 2px #ccc;
+	background:#ED581E;
+}
+
