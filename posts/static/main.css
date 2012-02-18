@@ -1,50 +1,42 @@
-/* overall document styles */
 body { background-color:#fff; text-align:center; }
 
-/* headings */
-h3 { font:20pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;}
+.logo { color:transparent; font-size:0px; 
+        background:url(images/logo4.png) no-repeat center;
+        width:262px; height:110px;
+        width:100%
+        }
 
-/* action buttons */
-button { font-size:10pt; }
+.headline { color:#a77; font:12pt verdana,sans-serif; 
+            padding-top:0;
+            padding-bottom: 1em;}
+            
+.infotext {font:10pt verdana, sans serif; line-height:16pt; text-align: left; padding:4pt; background: #E5DCDA; border-radius: 5px;}
+
+
+.menu { margin:2em 0; }
+
 button em { font-style:normal; font-weight:bold;}
+.menu a { color:inherit; text-decoration:none; }
+
 button.create { font-size: 16pt; padding: 1em; color:#4C332E; background:#ED581E; border: 2px solid #4C332E; border-radius: 5px; clear: both}
 button.login  { color:#4C332E; }
 button.about  { color:#000; background:#FFD615; border: 1px solid #4C332E; border-radius: 5px;}
 button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
 button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
 
-/* common page elements */
-.logo { color:transparent; font-size:0px; 
-        background:url(images/logo2.png) no-repeat top center;
-        width:262px; height:88px;
-        width:100%
-        }
-
-.headline { color:#a77; font:12pt verdana,sans-serif; 
-            padding-top:0; }
-            
-.menu > div { margin:2em 0; }
-.menu a { color:inherit; text-decoration:none; }
-
-.signup div {font:10pt verdana,sans-serif; color:#4C332E;
+.menu div {font:10pt verdana,sans-serif; color:#4C332E;
     width:12em; display: inline-block; vertical-align: top;}
-.login div {font:9pt verdana, sans-serif; color:#4C332E;
+.login div {font:8pt verdana, sans-serif; color:#4C332E;
     width:12em; display: inline-block; vertical-align: middle;}
 
-.infotext {font:10pt verdana, sans serif; line-height:16pt; 
-	text-align: left; padding:1pt 1em; 
-	background: #E5DCDA; border-radius: 5px;}
-	
-.footer { margin-top:1em; }
-
-/* page layout elements */
-.container, .container input { font:10pt verdana,sans-serif; line-height:1.5em;}
+h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;}
 
 .box, .whitebox { background:#F7E492; border-radius:10pt; padding:4pt; }
 
 .whitebox { margin:4pt; margin-bottom:8pt; text-align:center; display:inline-block; }
 
-/* content specific styles */
+.container, .container input { font:10pt verdana,sans-serif; line-height:1.5em;}
+
 .post { display:inline-block; width:200pt; }
 .post a {color:#AB283C; text-decoration: none;}
 

@@ -14,18 +14,18 @@ class UserProfile(models.Model):
 	nickname = models.CharField(max_length=30)
 	profession = models.CharField(max_length=30)
 	postcode = models.IntegerField() # why not working? min_value=1000, max_value=9999)
-	aboutme = models.TextField(max_length=500)
 	english = models.BooleanField()
 	german = models.BooleanField()
 	french = models.BooleanField()
 	italian = models.BooleanField()
-	other_lang = models.CharField('other languages', max_length=70, blank=True, null=True)
-	birth_year = models.IntegerField(blank=True, null=True) #, min_value=1900, max_value=2050)
+	other_lang = models.CharField('Other', max_length=70, blank=True, null=True)
+	birth_year = models.IntegerField('Year of birth', blank=True, null=True) #, min_value=1900, max_value=2050)
 	GENDER_CHOICES = (
 	        (u'M', u'Male'),
 	        (u'F', u'Female'),
 	    )
 	sex = models.CharField(max_length=2, choices=GENDER_CHOICES, blank=True, null=True)
+	aboutme = models.TextField('About myself', max_length=500)
 	def __unicode__(self):
 		return self.nickname
 

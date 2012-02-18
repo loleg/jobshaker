@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load url from future %}
 
+{% block head %}
+  <link href="/static/form.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
 <div class="box"><div class="whitebox">
 	
@@ -8,10 +12,15 @@
 <p>There were errors in your profile, please have a look below and correct them.</p>
 {% endif %}
 
-<form method="post" action="{% url 'posts.views.edit_profile' %}">
-{% csrf_token %}
+<form method="post" action="{% url 'posts.views.edit_profile' %}">{% csrf_token %}
+<fieldset id="profileform">
+<legend>My profile</legend>
 {{ form.as_p }}
-<input type="submit" value="Save my profile" />
+<p>
+	<input class="btnCancel" type="reset" name="cancel" value="Cancel">
+	<input class="btnSend" type="submit" name="submit" value="Save ">
+</p>
+</fieldset>
 </form>
 
 </div></div>
