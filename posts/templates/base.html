@@ -32,12 +32,17 @@
 	    	<button class="profile">My profile</button>
 		</a>
 	{% else %}
-<!--		<a href="/accounts/register">
-			<button class="create">Register</button>
-		</a>
-   	<a href="/login">
-		  <button class="login">Login</button>
-		</a> -->
+		{% if not is_at_home %}
+			<a href="/">
+			  	<button class="links">Home</button>
+			</a>
+			<a href="/accounts/register">
+				<button>Register</button>
+			</a>
+		 	<a href="/login">
+				<button class="login">Login</button>
+			</a>
+		{% endif %}
 	{% endif %}
   </div> 
   

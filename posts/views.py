@@ -11,6 +11,7 @@ def index(request):
 	latest_post_list = Post.objects.all().order_by('-pub_date')[:5]
 	return render_to_response('posts/index.html', {
 		'latest_post_list': latest_post_list,
+		'is_at_home': True
 	}, context_instance=RequestContext(request))
 	
 def detail(request, post_id):
@@ -52,7 +53,7 @@ def edit(request, post_id):
 		post.user_id = up.id
 		post.save()
 		msg = "Post updated successfully"
-		messages.success(request, msg, fail_silently=True)
+		#messages.success(request, msg, fail_silently=True)
 		return redirect('/posts/%d' % post.id)
 	return render_to_response('posts/edit_post.html', {
 			'form': form, 'post': post

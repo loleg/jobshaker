@@ -2,12 +2,12 @@ body { background-color:#fff; text-align:center; }
 
 .logo { color:transparent; font-size:0px; 
         background:url(images/logo2.png) no-repeat center;
-        width:262px; height:110px;
+        width:262px; height:120px;
         width:100%
         }
 
 .headline { color:#a77; font:12pt verdana,sans-serif; 
-            padding-top:0; }
+            padding-top:0; margin:-10pt 0 0; padding-bottom:10pt; }
             
 button em { font-style:normal; font-weight:bold;}
 button.create { font-size: 16pt; padding: 1em; color:#fff; background:#ED581E; border: 2px solid #4C332E; border-radius: 5px; clear: both}
@@ -18,18 +18,22 @@ button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; borde
 
 .menu, .index > div { margin:2em 0; }
 
+.index { background:#fff url(http://farm3.staticflickr.com/2292/2424445668_8dfd951507_b.jpg) no-repeat bottom; margin:0; padding:1em; border-radius:7pt; }
+
 .index a, .menu a { color:inherit; text-decoration:none; }
 
-.infotext {font:10pt verdana, sans serif; line-height:16pt; text-align: left; 
-		padding:1pt 2em; background: #E5DCDA; border-radius: 5px; }
+.index > div {font:10pt verdana, sans serif; line-height:16pt; color:white; }
 
-.signup div {font:10pt verdana,sans-serif; color:#4C332E;
+.infotext { text-align: left;	padding:1pt 2em; background: #F5ECEA; opacity:0.8; border-radius: 5px; color:black !important; margin:0; }
+
+.signup div {font:10pt verdana,sans-serif; /*color:#4C332E;*/
     width:12em; display: inline-block; vertical-align: top;}
     
-.login div {font:8pt verdana, sans-serif; color:#4C332E;
+.login div {font:8pt verdana, sans-serif; /*color:#4C332E;*/
     width:12em; display: inline-block; vertical-align: middle;}
 
-h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;}
+h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
+		float: left; margin-bottom: 0.3em; margin-top: -1.8em;}
 
 .container, .whitebox { background:#F7E492; border-radius:10pt; padding:4pt; }
 
@@ -39,12 +43,14 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;}
 
 .container, .container input { font:10pt verdana,sans-serif; line-height:1.5em;}
 
-.twocolumn { width:45%; display:inline-block; padding:1em; vertical-align:top; }
+.twocolumn { width:45%; display:inline-block; vertical-align:top; }
 
 .ui-datepicker { font-size:10pt !important; }
 
 .post { display:inline-block; width:200pt; }
 .post a {color:#AB283C; text-decoration: none;}
+
+.doc { padding:0 2em; }
 
 item, tr { background:#fff;
        border:2px solid #4C332E;border-radius:4pt; text-align:left;

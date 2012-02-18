@@ -14,12 +14,12 @@
 	<fieldset id="profileform">
 		<legend>Jobshaker Post</legend>
 
+		<p><i>Tip:</i> you may leave the distance and from/until blank</p>
+
 {% if form.errors %}
 <p class="error">There were errors in your post, please have a look below and correct them.</p>
 {% endif %}
-<p>Note: you can leave the distance and from/until blank.</p>
-		
-		
+				
 		{{ form.as_p }}
 		<center>
 			<input class="btnCancel" type="reset" name="cancel" value="Cancel">
