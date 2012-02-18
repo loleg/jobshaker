@@ -1,0 +1,21 @@
+Jobshaker Installation
+
+1. Install Python 2.7 and Django 1.3.1
+
+2. Download and install the following modules
+
+django-registration
+https://bitbucket.org/ubernostrum/django-registration/downloads
+
+django-autocomplete
+https://bitbucket.org/tyrion/django-autocomplete/downloads
+
+3. Create a new database or connect your own
+
+mkdir db
+python manage.py syncdb
+
+4. Run
+
+python manage.py runserver 0.0.0.0:8000
+
