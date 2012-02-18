@@ -1,6 +1,8 @@
 from registration import *
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -15,8 +17,8 @@ urlpatterns = patterns('',
 	(r'^posts/(?P<post_id>\d+)/edit$', 'posts.views.edit'),
 	(r'^posts/(?P<post_id>\d+)/reply$', 'posts.views.reply'),
 
-    # url(r'^$', 'jobshaker.views.home', name='home'),
-    # url(r'^jobshaker/', include('jobshaker.foo.urls')),
+ 	# url(r'^$', 'jobshaker.views.home', name='home'),
+	# url(r'^jobshaker/', include('jobshaker.foo.urls')),
 
 	# Profile
 	(r'^userprofile/(?P<userprofile_id>\d+)/$', 'posts.views.profile'),	
@@ -32,10 +34,15 @@ urlpatterns = patterns('',
 		
 	# Registration form
 	(r'^accounts/', include('registration.backends.simple.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+	
+	# Static pages
+	('^about/$', direct_to_template, { 'template': 'pages/about.html'}),
+	('^links/$', direct_to_template, { 'template': 'pages/links.html'}),
+	
+	
+	# Uncomment the admin/doc line below to enable admin documentation:
+	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+	
+	# Uncomment the next line to enable the admin:
+	url(r'^admin/', include(admin.site.urls)),
 )
