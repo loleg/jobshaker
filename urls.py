@@ -1,7 +1,9 @@
 from registration import *
-from django.conf.urls.defaults import patterns, include, url
+from autocomplete import *
+from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
+from posts import views
 
 admin.autodiscover()
 
@@ -35,10 +37,12 @@ urlpatterns = patterns('',
 	# Registration form
 	(r'^accounts/', include('registration.backends.simple.urls')),
 	
+	# Autocomplete
+	('^autocomplete/', include(views.autocomplete.urls)),
+	
 	# Static pages
 	('^about/$', direct_to_template, { 'template': 'pages/about.html'}),
 	('^links/$', direct_to_template, { 'template': 'pages/links.html'}),
-	
 	
 	# Uncomment the admin/doc line below to enable admin documentation:
 	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

@@ -70,6 +70,7 @@ STATIC_URL = '/static/'
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+AUTOCOMPLETE_MEDIA_PREFIX = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

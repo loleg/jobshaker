@@ -2,10 +2,13 @@ from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import Http404
 
-from information.models import Location
-
 from posts.models import *
 from posts.forms import *
+
+from information.models import Location
+from autocomplete.views import AutocompleteView
+
+autocomplete = AutocompleteView('posts')
 
 def index(request):
 	latest_post_list = Post.objects.all().order_by('-pub_date')[:5]
