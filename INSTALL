@@ -13,17 +13,17 @@ https://bitbucket.org/tyrion/django-autocomplete/
 
 3. Create a new database or connect your own
 
-mkdir db
-python manage.py syncdb
+$ mkdir db
+$ python manage.py syncdb
 
 4. Load baseline data
 
-Download PLZ light here: https://match.post.ch/ - or:
-$ wget https://match.post.ch/download?file=10000&tid=10&rol=0
-$ unzip plz_l_20120201.zip db/
+Download PLZ light here: https://match.post.ch/ 
+Unzip and place the text file into db/
+Convert the file into UTF-8 encoding
 $ python load_plz.py
 
 5. Run
 
-python manage.py runserver 0.0.0.0:8000
+$ python manage.py runserver 0.0.0.0:8000
 

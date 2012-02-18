@@ -8,12 +8,12 @@ from information.models import Location
 import csv
 import codecs
 
-dataFormat = 'mbcs';
+dataFormat = 'utf-8' #'iso-8859-15'
 
 class LoadData():
 	print "Loading location data"
 	count = 0
-	with codecs.open('db/plz_l_20120124.txt', 'rb', dataFormat) as f:
+	with codecs.open('db/plz_l_20120124.txt', 'rb') as f:
 		reader = csv.reader(f, dialect=csv.excel_tab)
 		for row in reader:
 			print row[2], '=', row[4]
