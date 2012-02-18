@@ -8,16 +8,11 @@ class Intent(models.Model):
 	back = models.CharField(max_length=99, blank=True, null=True)
 	def __unicode__(self):
 		return self.name
-
-class Profession(models.Model):
-	name = models.CharField(max_length=50)
-	def __unicode__(self):
-		return self.name
 	
 class UserProfile(models.Model):
 	user = models.OneToOneField(auth.models.User)
 	nickname = models.CharField(max_length=30)
-	profession = models.ForeignKey(Profession)
+	profession = models.CharField(max_length=30)
 	postcode = models.IntegerField() # why not working? min_value=1000, max_value=9999)
 	aboutme = models.TextField(max_length=500)
 	english = models.BooleanField()
