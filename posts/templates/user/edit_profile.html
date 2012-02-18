@@ -2,19 +2,20 @@
 {% load url from future %}
 
 {% block head %}
+	{{ form.media }}
   <link href="/static/form.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block content %}
-<div class="box"><div class="whitebox">
-	
-{% if form.errors %}
-<p>There were errors in your profile, please have a look below and correct them.</p>
-{% endif %}
-
+<div class="whitebox">
 <form method="post" action="{% url 'posts.views.edit_profile' %}">{% csrf_token %}
 <fieldset id="profileform">
 	<legend>My profile</legend>
+
+	{% if form.errors %}
+	<p class="error">There were errors in your profile, please have a look below and correct them.</p>
+	{% endif %}
+
 	<p><label for="id_nickname">Nickname:</label> <input id="id_nickname" type="text" name="nickname" value="zuesi" maxlength="30"></p>
 	<p><label for="id_profession">Profession:</label> <input id="id_profession" type="text" name="profession" value="lula" maxlength="30"></p>
 	<p><label for="id_postcode">Postcode:</label> <input type="text" name="postcode" value="3000" id="id_postcode"></p>
@@ -40,5 +41,5 @@
 </fieldset>
 </form>
 
-</div></div>
+</div>
 {% endblock %}

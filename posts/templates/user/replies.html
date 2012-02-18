@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% load mytags %}
 
-{% block title %}- replies{% endblock %}
+{% block title %}- My Posts{% endblock %}
 
 {% block content %}
-<h3>Jobshaker Replies</h3>
-{% for p in posts %}
-<div class="box"><div class="whitebox">
+
+<div class="twocolumn">
+<h3>My Posts</h3>
+
+{% for p in myposts %}
+<div class="whitebox">
 	<date>{{ p.pub_date }}</date><br>
 	<a href="/posts/{{ p.id }}">{{ p.intent }}</a>
 	<ul class="replies">
@@ -27,8 +30,37 @@
 	</ul>
 </div>
 {% endfor %}
-{% if posts|length == 0 %}
-	You haven't started any jobshakes, why don't you do that 
-	<a href="/userprofile/">in your profile</a>?
+{% if myposts|length == 0 %}
+	You haven't posted anything, why don't you 
+	<a href="/posts/new">do that now</a>?
 {% endif %}
+</div>
+
+<div class="twocolumn">
+<h3>My Replies</h3>
+
+{% for reply in myreplies %}
+<div class="whitebox">
+	<date>{{ reply.post.pub_date }}</date><br>
+	<a href="/posts/{{ reply.post.id }}">{{ reply.post.intent }}</a>
+	<ul class="replies">
+		<li>
+			{% if reply.like %}
+				<b>:)</b> 
+			{% endif %}
+			{% if reply.flag %}
+				<b>:(</b> 
+			{% endif %}
+			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
+			"{{ reply.comment }}"
+		</li>
+	</ul>
+</div>
+{% endfor %}
+{% if myreplies|length == 0 %}
+	You haven't replied yet, why not
+	<a href="/">explore some more</a>?
+{% endif %}
+</div>
+
 {% endblock %}

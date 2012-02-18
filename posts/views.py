@@ -18,9 +18,9 @@ def detail(request, post_id):
 		p = Post.objects.get(pk=post_id)
 		l_user = l_post = ''
 		if p.user.postcode:
-			l_user = Location.objects.get(plz=p.user.postcode)
+			l_user = Location.objects.filter(plz=p.user.postcode)[0]
 		if p.postcode:
-			l_post = Location.objects.get(plz=p.postcode)
+			l_post = Location.objects.filter(plz=p.postcode)[0]
 	except Post.DoesNotExist:
 		raise Http404
 	return render_to_response('posts/detail.html', {
@@ -83,17 +83,25 @@ def my_profile(request):
 		return edit_profile(request)
 
 def my_replies(request):
-	up = get_object_or_404(UserProfile, user=request.user.id)
-	return render_to_response('user/replies.html', {
-			'userprofile': up,
-			'posts': Post.objects.filter(user=up),
-			'replies': Reply.objects.all(), # TODO: filter down to relevant replies
-		}, context_instance=RequestContext(request))
+	try:
+		up = UserProfile.objects.get(user=request.user.id)
+		myposts = Post.objects.filter(user=up)
+		replies = Reply.objects.all() # TODO: how to filter this..
+		myreplies = Reply.objects.select_related().filter(user=up)
+		return render_to_response('user/replies.html', {
+				'userprofile': up,
+				'myposts': myposts, 'replies': replies, 
+				'myreplies': myreplies
+			}, context_instance=RequestContext(request))
+	except UserProfile.DoesNotExist:
+		return edit_profile(request)
 			
 def profile(request, userprofile_id):
 	up = get_object_or_404(UserProfile, pk=userprofile_id)
+	if up.postcode:
+		l_user = Location.objects.filter(plz=up.postcode)[0]
 	return render_to_response('user/detail.html', {
-			'userprofile': up,
+			'userprofile': up, 'location': l_user,
 			'posts': Post.objects.filter(user=up), 
 		}, context_instance=RequestContext(request))
 

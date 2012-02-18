@@ -5,7 +5,7 @@
 
 {% block content %}
 <h3>Jobshake detail</h3>
-<div class="box"><div class="whitebox">
+<div class="whitebox">
 	<date>{{ post.pub_date }}</date><br>
 	{% if my_post %}
 	<p>
@@ -15,16 +15,14 @@
 	</p>
 	{% endif %}
 	<a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a>,
-	a <b>{{ post.user.profession.name }}</b>, 
-	is looking for a
+	<b>{{ post.user.profession }}</b> is
 	{{ post.intent }}
 	{% if where %}
 		in <b>{{ where }}</b> 
 	{% endif %}
 <hr>
-	<p>{{ post.comment }}</p>
-	{% if my_post %}
-	{% else %}
+		<p>{{ post.comment }}</p>
+	{% if not my_post %}
 		<a href="/posts/{{ post.id }}/reply">
 			<button class="reply">Reply</button>
 		</a>
@@ -41,15 +39,15 @@
 			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
 			"{{ reply.comment }}"
 		</li>
-	{% endfor %}
+	{% endfor %}}
 	</ul>
 <hr>
 	{% show_gravatar post.user.user.email 64 %}
 	
 	Posted by <a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a><br>
-	{{ post.user.profession }} in 
+	{{ post.user.profession }}
 	{% if place %}
 		in <b>{{ place }}</b> 
 	{% endif %}
-</div></div>
+</div>
 {% endblock %}

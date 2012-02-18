@@ -6,6 +6,11 @@
   <!-- {{ STATIC_URL }} -->
   <link href="/static/main.css" media="screen" rel="stylesheet" type="text/css" />
 
+	<link type="text/css" href="/static/css/sunny/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+	<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="/static/main.js"></script>
+	
   {% block head %}{% endblock %}
   
 </head> 
@@ -43,9 +48,9 @@
   </div> 
  
   <div class="menu footer"> 
-    <button class="about"><a href="about/"><em>about</em> jobshaker</a></button> 
-    <button class="links"><a href="links/">useful <em>links</em></a></button> 
-    <button class="policy"><a href="privacy/"><em>privacy</em> policy</a></button> 
+    <a href="/about"><button class="about"><em>about</em> jobshaker</button></a>
+    <a href="/links"><button class="links">useful <em>links</em></button></a>
+    <a href="/policy"><button class="policy"><em>privacy</em> policy</button></a>
   </div> 
  
 </body>

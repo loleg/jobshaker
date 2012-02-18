@@ -2,12 +2,30 @@
 
 {% block title %}- post{% endblock %}
 
+{% block head %}
+	{{ form.media }}
+  <link href="/static/form.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
 <h3>Post a Jobshake</h3>
-<div class="box"><div class="whitebox">
+<div class="whitebox">
 	<form action="" method="post">{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Save" />
+	<fieldset id="profileform">
+		<legend>Jobshaker Post</legend>
+
+{% if form.errors %}
+<p class="error">There were errors in your post, please have a look below and correct them.</p>
+{% endif %}
+<p>Note: you can leave the distance and from/until blank.</p>
+		
+		
+		{{ form.as_p }}
+		<center>
+			<input class="btnCancel" type="reset" name="cancel" value="Cancel">
+			<input class="btnSend" type="submit" name="submit" value="Save ">
+		</center>
+	</fieldset>
 	</form>
-</div></div>
+</div>
 {% endblock %}
