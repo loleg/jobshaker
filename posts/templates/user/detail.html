@@ -5,32 +5,28 @@
 
 {% block content %}
 <h3>Jobshaker Profile</h3>
-<div class="whitebox">
-	<h4>My info</h4>
-	<p>Nickname: {{ userprofile.nickname }}</p>
-	<p>Location: {{ location }}</p>
-	<p>Profession: {{ userprofile.profession }}</p>
-	<a href="/accounts/edit/"><button>EDIT</button></a>
-</div><div class="whitebox">
-	<h4>My jobshakes</h4>
-	<ul class="myposts">
-	{% for post in posts %}
-		<li>
-			<a href="/posts/{{ post.id }}">{{ post }}</a>
-		</li>
-	{% endfor %}
-	</ul>
-	<a href="/posts/new">
-    	<button class="create">START</button>
-	</a>
-</div><div class="whitebox">
-	<h4>Photo</h4>
-	{% show_gravatar userprofile.user.email 64 %}
-	<p>(<a href="https://en.gravatar.com/site/signup/">Gravatar</a>)</p>
-</div><div class="whitebox">
-	<h4>Account</h4>
-	<p>Name: {{ userprofile.user.first_name }} {{ userprofile.user.last_name }}</p>
-	<p>Login: {{ userprofile.user }}</p>
-	<p>Email: {{ userprofile.user.email }}</p>
+<div class="whitebox" style="width:30em">
+	
+	<div style="float:left; margin:1em;">
+		{% show_gravatar userprofile.user.email 128 %}
+		{% if my_profile %}
+			<p><a href="https://en.gravatar.com/site/signup/" class="button">Gravatar</a></p>
+		{% endif %}
+	</div>
+	
+	<h4 style="text-align:left">{{ userprofile.nickname }}</h4>
+	<p><b>{{ userprofile.profession }}</b></p>
+	<p>{{ location }}</p>
+	{% if my_profile %}
+		<p><a href="/accounts/edit/" class="button">Edit Profile</a></p>
+	{% endif %}
+
+	{% if my_profile %}
+		<p><a href="/userprofile/replies">{{ posts|length }} posts</a></p>
+		<p><a href="/posts/new" class="button">New post</a></p>
+	{% else %}
+		<p><a href="/">{{ posts|length }} posts</a></p>
+	{% endif %}
+
 </div>
 {% endblock %}

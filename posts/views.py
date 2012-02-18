@@ -64,7 +64,7 @@ def reply(request, post_id):
 		up = UserProfile.objects.get(user=request.user.id)
 		p = Post.objects.get(pk=post_id)
 	except UserProfile.DoesNotExist:
-		raise Http404
+		return edit_profile(request)
 	form = ReplyForm(request.POST or None)
 	if form.is_valid():
 		reply = form.save(commit=False)
@@ -104,6 +104,7 @@ def profile(request, userprofile_id):
 	return render_to_response('user/detail.html', {
 			'userprofile': up, 'location': l_user,
 			'posts': Post.objects.filter(user=up), 
+			'my_profile': (up.user.id == request.user.id)
 		}, context_instance=RequestContext(request))
 
 def user(request, user_id):

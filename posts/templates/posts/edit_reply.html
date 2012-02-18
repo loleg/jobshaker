@@ -2,11 +2,16 @@
 
 {% block title %}- {{ post.intent }}{% endblock %}
 
+{% block head %}
+	{{ form.media }}
+  <link href="/static/form.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
-<h3>Jobshake reply</h3>
+<h3>Reply to a post</h3>
 <div class="whitebox">
 	<date>{{ post.pub_date }}</date> 
-	A <b>{{ post.user.profession.name }}</b> is
+	<b>{{ post.user }}</b> is
 	{{ post.intent }}
 	{% if where %}
 		in <b>{{ where }}</b> 
@@ -15,8 +20,10 @@
 	<p>{{ post.comment }}</p>
 <hr>
 	<form action="" method="post">{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Send" />
+	<fieldset id="profileform">
+		<textarea id="id_comment" rows="10" cols="40" name="comment"></textarea>
+		<input class="btnSend" type="submit" name="submit" value="Send" style="display:inline;float:none;position:relative;top:-1em">
+	</fieldset>
 	</form>
 </div>
 {% endblock %}

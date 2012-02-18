@@ -8,15 +8,18 @@ body { background-color:#fff; text-align:center; }
 
 .headline { color:#a77; font:12pt verdana,sans-serif; 
             padding-top:0; margin:-10pt 0 0; padding-bottom:10pt; }
-            
-button em { font-style:normal; font-weight:bold;}
-button.create { font-size: 16pt; padding: 1em; color:#fff; background:#ED581E; border: 2px solid #4C332E; border-radius: 5px; clear: both}
-button.login  { color:#4C532E; }
-button.about  { color:#000; background:#FFD615; border: 1px solid #4C332E; border-radius: 5px;}
-button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
-button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
 
-.menu, .index > div { margin:2em 0; }
+.menu { margin:1em 0; height:5em; }
+
+.button span { font-size:12pt; font-weight:normal; }
+.button em { font-style:normal; font-weight:bold;}
+.button.create { font-size: 16pt; padding: 1em; color:#fff; background:#ED581E; border: 2px solid #4C332E; border-radius: 5px; clear: both}
+.button.login  { color:#4C532E; }
+.button.about  { color:#000; background:#FFD615; border: 1px solid #4C332E; border-radius: 5px;}
+.button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
+.button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
+
+.index > div { margin:2em 0; }
 
 .index { background:#fff url(http://farm3.staticflickr.com/2292/2424445668_8dfd951507_b.jpg) no-repeat bottom; margin:0; padding:1em; border-radius:7pt; }
 
@@ -49,6 +52,7 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 
 .post { display:inline-block; width:200pt; }
 .post a {color:#AB283C; text-decoration: none;}
+.post .gravatar { float:left; margin-right:1em; }
 
 .doc { padding:0 2em; }
 

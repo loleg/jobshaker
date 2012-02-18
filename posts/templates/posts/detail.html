@@ -9,9 +9,7 @@
 	<date>{{ post.pub_date }}</date><br>
 	{% if my_post %}
 	<p>
-		<a href="/posts/{{ post.id }}/edit">
-			<button class="edit">Edit my post</button>
-		</a>
+		<a href="/posts/{{ post.id }}/edit" class="edit button">Edit my post</a>
 	</p>
 	{% endif %}
 	<a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a>,
@@ -23,11 +21,9 @@
 <hr>
 		<p>{{ post.comment }}</p>
 	{% if not my_post %}
-		<a href="/posts/{{ post.id }}/reply">
-			<button class="reply">Reply</button>
-		</a>
+		<a href="/posts/{{ post.id }}/reply" class="reply button">Reply</a>
 	{% endif %}
-	<ul class="replies">
+	<!--<ul class="replies">
 	{% for reply in replies %}
 		<li>
 			{% if reply.like %}
@@ -40,7 +36,7 @@
 			"{{ reply.comment }}"
 		</li>
 	{% endfor %}
-	</ul>
+	</ul>-->
 <hr>
 	<span style="float:left">
 	{% show_gravatar post.user.user.email 64 %}
