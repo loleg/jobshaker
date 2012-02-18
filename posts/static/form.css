@@ -26,8 +26,14 @@ fieldset p {
 	width:400px;		
 }
 
-.language li { margin:0 0 0 0;}
+.language p { margin:0;}
+.language label { font-weight:normal; }
 .language input { width:auto;}
+
+#id_other_lang { margin-bottom:1em; }
+#id_birth_year, #id_postcode { width:3em; }
+#id_aboutme { width:auto; }
+
 fieldset label { 
 	float:left;
 	line-height:167%;
