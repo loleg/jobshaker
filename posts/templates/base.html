@@ -20,19 +20,21 @@
   
   <h2 class="headline">find the right partner&nbsp;for&nbsp;job&nbsp;sharing or building&nbsp;your&nbsp;business</h2> 
   
-  <div class="menu top">
 	{% if user.is_authenticated %}
-		<a href="/" class="links button">Home</a>
-		<a href="/userprofile/replies" class="posts button">My posts</a>
-		<a href="/userprofile" class="profile button">My profile</a>
+  	<div class="menu top">
+			<a href="/" class="links button">Home</a>
+			<a href="/userprofile/replies" class="posts button">My posts</a>
+			<a href="/userprofile" class="profile button">My profile</a>
+	  </div> 
 	{% else %}
 		{% if not is_at_home %}
-			<a href="/" class="links button">Home</a>
-			<a href="/accounts/register" class="button">Register</a>
-		 	<a href="/login" class="login button">Login</a>
+	  	<div class="menu top">
+				<a href="/" class="links button">Home</a>
+				<a href="/accounts/register" class="button">Register</a>
+			 	<a href="/login" class="login button">Login</a>
+		  </div> 
 		{% endif %}
 	{% endif %}
-  </div> 
   
   <div class="container" id="content"> 
 	
