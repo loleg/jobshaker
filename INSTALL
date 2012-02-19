@@ -8,9 +8,6 @@ django-registration
 https://bitbucket.org/ubernostrum/django-registration/
 * you MUST use the source version to avoid simple.urls errors
 
-django-autocomplete
-https://bitbucket.org/tyrion/django-autocomplete/
-
 3. Create a new database or connect your own
 
 $ mkdir db
