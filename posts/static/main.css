@@ -11,7 +11,7 @@ body { background-color:#fff; text-align:center; }
 
 .menu { margin:1em 0; height:5em; }
 
-.menu.top { height: 2em; margin: 0 1em; text-align: right; z-index: 1; }
+.menu.top { height: 5em; margin: 0 1em; z-index: 1; }
 
 .button span { font-size:12pt; font-weight:normal; }
 .button em { font-style:normal; font-weight:bold;}
@@ -20,6 +20,8 @@ body { background-color:#fff; text-align:center; }
 .button.about  { color:#000; background:#FFD615; border: 1px solid #4C332E; border-radius: 5px;}
 .button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
 .button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
+.button.small span { font-size:10pt; padding:2pt; }
+.button.newpost { position:absolute; right:4px; background:#f33; color:white; border:2px solid white; }
 
 .index > div { margin:2em 0; }
 
@@ -40,7 +42,9 @@ body { background-color:#fff; text-align:center; }
 h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 		float: left; margin-bottom: 0.3em; margin-top: -1.8em;}
 
-.container { background:#F7E492 url(images/yellow-daffs.jpg) 100% 100%; 
+.twocolumn h3 { float: none; margin-bottom: 0.5em; }
+
+.container { background:#F7E492 url(images/corkboard.jpg) 100% 100%; 
 		z-index:2; position:relative; } 
 
 .container, .whitebox { border-radius:10pt; padding:4pt; }
@@ -53,11 +57,35 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 
 .twocolumn { width:45%; display:inline-block; vertical-align:top; }
 
+.twocolumn:last-child { border-left: 2px solid white; }
+
 .ui-datepicker { font-size:10pt !important; }
 
 .post { display:inline-block; width:200pt; }
 .post a {color:#AB283C; text-decoration: none;}
 .post .gravatar { float:left; margin-right:1em; }
+
+/* business partner */
+.intent1 { background-color:#cef; border:3px solid #33f; }
+/* sharing a job */
+.intent2 { background-color:#bfb; border:3px solid #3f3; }
+/* project */
+.intent3 { background-color:#fe9; border:3px solid #ff3; }
+
+.profile a.edit { float:right; }
+.profile img { float:right; }
+.profile p { margin-left:1em; }
+.profile p i { display:block; color:#999; border-bottom:1px dashed #ddd; }
+.profile b { font-size:16pt; font-weight:normal; }
+
+.postdetail p { text-align:center; }
+.postdetail p i { display:block; color:#999; border-bottom:1px dashed #ddd; }
+.postcomment { background-color:#fff; padding:2em; padding-bottom:4em; 
+	border-bottom:1px solid black; border-right:1px solid black; }
+.postcomment p { text-align:left; }
+.postcomment .reply { float: right; right: -1em; }
+
+.notice { margin:1em; background:#eee; border-radius:10pt; opacity:0.7; }
 
 .doc { padding:0 2em; }
 

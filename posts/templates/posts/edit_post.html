@@ -14,16 +14,40 @@
 	<fieldset id="profileform">
 		<legend>Jobshaker Post</legend>
 
-		<p><i>Tip:</i> you may leave the distance and from/until blank</p>
+		<p>Select what you are looking for, and where you want to work</p>
 
 {% if form.errors %}
 <p class="error">There were errors in your post, please have a look below and correct them.</p>
 {% endif %}
-				
-		{{ form.as_p }}
+					
+		<p>
+			{{ form.intent.errors }}
+			<label for="id_intent">Intent:
+			<span class="required">*</span></label>
+			{{ form.intent }}
+		</p><p>
+			{{ form.location.errors }}
+			<label for="id_location">Location:</label> 
+			{{ form.location }}
+		</p><p>
+			{{ form.valid_from.errors }}
+			<label for="id_valid_from">Starting date:</label>
+			{{ form.valid_from }}
+		</p><p>
+			{{ form.valid_until.errors }}
+			<label for="id_valid_until">End date:</label> 
+			{{ form.valid_until }}
+		</p><p>
+			{{ form.comment.errors }}
+			<label for="id_comment">Describe your plans and the ideal partner:
+			<span class="required">*</span></label>
+			{{ form.comment }}
+		</p>
+	
 		<center>
 			<input class="btnCancel" type="reset" name="cancel" value="Cancel">
 			<input class="btnSend" type="submit" name="submit" value="Save ">
+			<br /><a href="#">Delete this post</a>
 		</center>
 	</fieldset>
 	</form>

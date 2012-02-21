@@ -11,7 +11,6 @@ class Intent(models.Model):
 	
 class UserProfile(models.Model):
 	user = models.OneToOneField(auth.models.User)
-	nickname = models.CharField(max_length=30)
 	profession = models.CharField(max_length=30)
 	postcode = models.IntegerField() # why not working? min_value=1000, max_value=9999)
 	english = models.BooleanField()
@@ -25,18 +24,17 @@ class UserProfile(models.Model):
 	        (u'F', u'Female'),
 	    )
 	sex = models.CharField(max_length=2, choices=GENDER_CHOICES, blank=True, null=True)
-	aboutme = models.TextField('About myself', max_length=500)
+	aboutme = models.TextField('About myself', max_length=500, blank=True, null=True)
 	def __unicode__(self):
-		return self.nickname
+		return self.user.username
 
 class Post(models.Model):
 	pub_date = models.DateTimeField('date published', auto_now_add=True)
 	user = models.ForeignKey(UserProfile, editable=False)
-	postcode = models.IntegerField(blank=True, null=True)
-	distance = models.IntegerField(blank=True, null=True)
 	intent = models.ForeignKey(Intent)
-	valid_from = models.DateField('from', blank=True, null=True) 
-	valid_until = models.DateField('until', blank=True, null=True) 
+	location = models.CharField(max_length=60, blank=True, null=True)
+	valid_from = models.DateField(blank=True, null=True) 
+	valid_until = models.DateField(blank=True, null=True) 
 	comment = models.TextField()
 	def __unicode__(self):
 		return self.intent.name
@@ -47,8 +45,10 @@ class Reply(models.Model):
 	pub_date = models.DateTimeField('date replied', auto_now_add=True)
 	user = models.ForeignKey(UserProfile, editable=False)
 	post = models.ForeignKey(Post, editable=False)
-	flag = models.BooleanField()
-	like = models.BooleanField()
+	reply_to = models.ForeignKey('self', related_name='replies', 
+		editable=False, null=True, blank=True)
+	# flag = models.BooleanField()
+	# like = models.BooleanField()
 	comment = models.TextField()
 	def __unicode__(self):
 		return self.comment

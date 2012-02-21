@@ -31,35 +31,39 @@
 </div>
 {% endfor %}
 {% if myposts|length == 0 %}
-	You haven't posted anything, why don't you 
-	<a href="/posts/new">do that now</a>?
+	<p class="notice">You haven't posted anything, why don't you 
+	<a href="/posts/new">do that now</a>?</p>
 {% endif %}
 </div>
 
 <div class="twocolumn">
 <h3>My Replies</h3>
 
-{% for reply in myreplies %}
+{% for p in replyposts %}
 <div class="whitebox">
-	<date>{{ reply.post.pub_date }}</date><br>
-	<a href="/posts/{{ reply.post.id }}">{{ reply.post.intent }}</a>
+	<date>{{ p.pub_date }}</date><br>
+	<a href="/posts/{{ p.id }}">{{ p.intent }}</a>
 	<ul class="replies">
-		<li>
-			{% if reply.like %}
-				<b>:)</b> 
-			{% endif %}
-			{% if reply.flag %}
-				<b>:(</b> 
-			{% endif %}
-			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
-			"{{ reply.comment }}"
-		</li>
+	{% for reply in myreplies %}
+		{% ifequal p.id reply.post.id %}
+			<li>
+				{% if reply.like %}
+					<b>:)</b> 
+				{% endif %}
+				{% if reply.flag %}
+					<b>:(</b> 
+				{% endif %}
+				<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
+				"{{ reply.comment }}"
+			</li>
+		{% endifequal %}
+	{% endfor %}
 	</ul>
 </div>
 {% endfor %}
 {% if myreplies|length == 0 %}
-	You haven't replied yet, why not
-	<a href="/">explore some more</a>?
+	<p class="notice">You haven't replied yet, why not
+	<a href="/">explore some more</a>?</p>
 {% endif %}
 </div>
 

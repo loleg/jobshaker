@@ -1,0 +1,12 @@
+<item class="post intent{{ post.intent.id }}"> 
+	<date>{{ post.pub_date }}</date>
+	<a href="/userprofile/{{ post.user.id }}/">
+	<b>{{ post.user }}</b></a> 
+	is
+	<a href="/posts/{{ post.id }}/">
+	{{ post.intent }}
+	{% if post.location %}
+		in <b>{{ post.location }}</b> 
+	{% endif %}
+	</a>
+</item>

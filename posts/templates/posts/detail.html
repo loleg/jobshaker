@@ -4,26 +4,35 @@
 {% block title %}- {{ post.intent }}{% endblock %}
 
 {% block content %}
-<h3>Jobshake detail</h3>
-<div class="whitebox">
-	<date>{{ post.pub_date }}</date><br>
-	{% if my_post %}
-	<p>
-		<a href="/posts/{{ post.id }}/edit" class="edit button">Edit my post</a>
-	</p>
-	{% endif %}
+<h3>Post Detail</h3>
+<div class="whitebox postdetail intent{{ post.intent.id }}">
+	<span style="float:left">
+	{% show_fruvatar post.user.id 64 %}
+	</span>
+	
 	<a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a>,
-	<b>{{ post.user.profession }}</b> is
+	<b>{{ post.user.profession }}</b> 
+	is
 	{{ post.intent }}
 	{% if where %}
 		in <b>{{ where }}</b> 
 	{% endif %}
-<hr>
-		<p>{{ post.comment }}</p>
+	
+	<p>
+	{% if post.valid_from %}
+		From <b>{{ post.valid_from }}</b> 
+	{% endif %}
+	{% if post.valid_until %}
+		until <b>{{ post.valid_until }}</b> 
+	{% endif %}
+	</p>
+
+<div class="postcomment">
+	<p>{{ post.comment }}</p>
 	{% if not my_post %}
 		<a href="/posts/{{ post.id }}/reply" class="reply button">Reply</a>
 	{% endif %}
-	<!--<ul class="replies">
+	<ul class="replies">
 	{% for reply in replies %}
 		<li>
 			{% if reply.like %}
@@ -34,18 +43,23 @@
 			{% endif %}
 			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
 			"{{ reply.comment }}"
+			{% if not my_post and reply.user = post.user %}
+				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}" class="reply button small">Reply</a>
+			{% endif %}
+			{% if my_post and not reply.user = post.user %}
+				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}" class="reply button small">Reply</a>
+			{% endif %}
 		</li>
 	{% endfor %}
-	</ul>-->
-<hr>
-	<span style="float:left">
-	{% show_gravatar post.user.user.email 64 %}
-	</span>
+	</ul>
+</div>
+
+	<p>Posted on <date>{{ post.pub_date }}</date></p>
 	
-	Posted by <a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a><br>
-	{{ post.user.profession }}
-	{% if place %}
-		in <b>{{ place }}</b> 
-	{% endif %}
+	{% if my_post %}
+	<center>
+		<a href="/posts/{{ post.id }}/edit" class="edit button small">Edit my post</a>
+	</center>
+	{% endif %}	
 </div>
 {% endblock %}

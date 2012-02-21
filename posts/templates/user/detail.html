@@ -1,31 +1,43 @@
 {% extends "base.html" %}
 {% load mytags %}
 
-{% block title %}- {{ userprofile.nickname }}{% endblock %}
+{% block title %}- {{ userprofile }}{% endblock %}
 
 {% block content %}
 <h3>Jobshaker Profile</h3>
-<div class="whitebox" style="width:30em">
+<div class="whitebox profile" style="width:30em">
 	
-	<div style="float:left; margin:1em;">
-		{% show_gravatar userprofile.user.email 128 %}
-		{% if my_profile %}
-			<p><a href="https://en.gravatar.com/site/signup/" class="button">Gravatar</a></p>
-		{% endif %}
-	</div>
-	
-	<h4 style="text-align:left">{{ userprofile.nickname }}</h4>
-	<p><b>{{ userprofile.profession }}</b></p>
-	<p>{{ location }}</p>
-	{% if my_profile %}
-		<p><a href="/accounts/edit/" class="button">Edit Profile</a></p>
+	{% if userprofile.sex = 'F' %}
+		<img src="/static/images/shutterstock_female.jpg" align="left" hspace="20" />
+	{% endif %}
+	{% if userprofile.sex = 'M' %}
+		<img src="/static/images/shutterstock_male.jpg" align="left" hspace="20" />
 	{% endif %}
 
+	<p>
+		<i>Nickname</i>
+		<b>{{ userprofile }}</b>
+	</p><p>
+		<i>Profession</i>
+		<b>{{ userprofile.profession }}</b>
+	</p><p>
+		<i>Details</i>
+		{{ location }}
+	</p><p>
+		{% if age %}
+			{{ age }} years, 
+		{% endif %}
+		{{ userprofile.get_sex_display }}
+	</p><p>
+		<i>Languages</i>
+		{{ languages }}
+	</p><p>
+		<i>About me</i>
+		{{ userprofile.aboutme }}
+	</p>
+
 	{% if my_profile %}
-		<p><a href="/userprofile/replies">{{ posts|length }} posts</a></p>
-		<p><a href="/posts/new" class="button">New post</a></p>
-	{% else %}
-		<p><a href="/">{{ posts|length }} posts</a></p>
+		<p><a href="/accounts/edit/" class="button edit">Edit Profile</a></p>
 	{% endif %}
 
 </div>

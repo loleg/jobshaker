@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 	(r'^posts/(?P<post_id>\d+)/$', 'posts.views.detail'),
 	(r'^posts/(?P<post_id>\d+)/edit$', 'posts.views.edit'),
 	(r'^posts/(?P<post_id>\d+)/reply$', 'posts.views.reply'),
+	(r'^posts/(?P<post_id>\d+)/reply/(?P<reply_id>\d+)/$', 'posts.views.reply'),
 
  	# url(r'^$', 'jobshaker.views.home', name='home'),
 	# url(r'^jobshaker/', include('jobshaker.foo.urls')),

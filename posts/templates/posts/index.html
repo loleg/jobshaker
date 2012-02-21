@@ -32,27 +32,19 @@
 	
 	{% else %}
 
-  <h3>Freshest shakes</h3> 
-	
+  <h3>Jobshaker Board</h3> 
+
+	<a href="/posts/new" class="newpost button">New Post +</a>
+	<br /><br />
+
   <div class="feed"> 
 
 {% if latest_post_list %}
 	{% for post in latest_post_list %}
-		<item class="post"> 
-			{% show_gravatar post.user.user.email 64 %}
-			<date>{{ post.pub_date }}</date>
-			<a href="/userprofile/{{ post.user.id }}/">
-			<b>{{ post.user.profession }}</b></a> is
-			<a href="/posts/{{ post.id }}/">
-			{{ post.intent }}
-			{% if post.location %}
-				in <b>{{ post.location }}</b> 
-			{% endif %}
-			</a>
-		</item>
+		{% show_post post %}
 	{% endfor %}
 {% else %}
-	<p>No posts today.</p>
+	<p class="notice">No posts today.</p>
 {% endif %}
 
   </div>

@@ -81,4 +81,5 @@ input.btnSend  {
 	background:#ED581E;
 }
 
+.required {color: red;}
 .error, .errorlist { color:red; font-style:italic; }

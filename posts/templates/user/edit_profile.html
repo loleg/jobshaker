@@ -11,29 +11,56 @@
 <form method="post" action="{% url 'posts.views.edit_profile' %}">{% csrf_token %}
 <fieldset id="profileform">
 	<legend>My profile</legend>
+	<p></p>
 
 	{% if form.errors %}
 	<p class="error">There were errors in your profile, please have a look below and correct them.</p>
 	{% endif %}
 
-	<p><label for="id_nickname">Nickname:</label> <input id="id_nickname" type="text" name="nickname" value="zuesi" maxlength="30"></p>
-	<p><label for="id_profession">Profession:</label> <input id="id_profession" type="text" name="profession" value="lula" maxlength="30"></p>
-	<p><label for="id_postcode">Postcode:</label> <input type="text" name="postcode" value="3000" id="id_postcode"></p>
+	<p>
+		{{ form.profession.errors }}
+		<label for="id_profession">Profession: 
+		<span class="required">*</span></label>
+		{{ form.profession }}
+	</p><p>
+		{{ form.postcode.errors }}
+		<label for="id_postcode">Postcode:  
+		<span class="required">*</span></label>
+		{{ form.postcode }}
+	</p>
 	<div class="language">
 		<b>Languages:</b>
-		<p><label for="id_english">English:</label> <input checked="checked" type="checkbox" name="english" id="id_english"></p>
-		<p><label for="id_german">German:</label> <input type="checkbox" name="german" id="id_german"></p>
-		<p><label for="id_french">French:</label> <input type="checkbox" name="french" id="id_french"></p>
-		<p><label for="id_italian">Italian:</label> <input type="checkbox" name="italian" id="id_italian"></p>
-		<p><label for="id_other_lang">Other:</label> <input id="id_other_lang" type="text" name="other_lang" maxlength="70"></p>
+		<p>	
+			<label for="id_german">German:</label>
+			{{ form.german }}
+		</p><p>
+			<label for="id_french">French:</label>
+			{{ form.french }}
+		</p><p>
+			<label for="id_italian">Italian:</label>
+			{{ form.italian }}
+		</p><p>
+			<label for="id_english">English:</label>
+			{{ form.english }}
+		</p><p>
+			{{ form.other_lang.errors }}
+			<label for="id_other_lang">Other:</label>
+			{{ form.other_lang }}
+		</p>
 	</div>
-	<p><label for="id_birth_year">Year of birth:</label> <input type="text" name="birth_year" value="1981" id="id_birth_year"></p>
-	<p><label for="id_sex">Sex:</label> <select name="sex" id="id_sex">
-	<option value="">---------</option>
-	<option value="M" selected="selected">Male</option>
-	<option value="F">Female</option>
-	</select></p>
-	<p><label for="id_aboutme">About myself:</label> <textarea id="id_aboutme" rows="10" cols="40" name="aboutme">wer</textarea></p>
+	<p>
+		{{ form.birth_year.errors }}
+		<label for="id_birth_year">Year of birth:</label>
+		{{ form.birth_year }}
+	</p><p>
+		{{ form.sex.errors }}
+		<label for="id_sex">Sex:</label>
+		{{ form.sex }}
+	</p><p>
+		{{ form.aboutme.errors }}
+		<label for="id_aboutme">About myself:</label> 
+		<textarea id="id_aboutme" rows="10" cols="40" name="aboutme"></textarea>
+	</p>
 	<center>
 		<input class="btnCancel" type="reset" name="cancel" value="Cancel">
 		<input class="btnSend" type="submit" name="submit" value="Save ">
