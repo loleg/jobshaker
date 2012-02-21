@@ -14,17 +14,21 @@
 	<fieldset id="profileform">
 		<legend>Jobshaker Post</legend>
 
-		<p>Select what you are looking for, and where you want to work</p>
-
 {% if form.errors %}
 <p class="error">There were errors in your post, please have a look below and correct them.</p>
 {% endif %}
-					
+		
+		<span><br />Select what you are looking for, and where you want to work<br/><br/></span>		
 		<p>
 			{{ form.intent.errors }}
 			<label for="id_intent">Intent:
 			<span class="required">*</span></label>
 			{{ form.intent }}
+		</p><p>
+			{{ form.comment.errors }}
+			<label for="id_comment">Describe your plans and the ideal partner:
+			<span class="required">*</span></label>
+			{{ form.comment }}
 		</p><p>
 			{{ form.location.errors }}
 			<label for="id_location">Location:</label> 
@@ -37,18 +41,16 @@
 			{{ form.valid_until.errors }}
 			<label for="id_valid_until">End date:</label> 
 			{{ form.valid_until }}
-		</p><p>
-			{{ form.comment.errors }}
-			<label for="id_comment">Describe your plans and the ideal partner:
-			<span class="required">*</span></label>
-			{{ form.comment }}
 		</p>
-	
 		<center>
 			<input class="btnCancel" type="reset" name="cancel" value="Cancel">
 			<input class="btnSend" type="submit" name="submit" value="Save ">
-			<br /><a href="#">Delete this post</a>
 		</center>
+		{% if form.intent.data %}
+		<center><br/>
+			<a href="/posts/4/delete"">Delete this post</a>
+		</center>
+		{% endif %}
 	</fieldset>
 	</form>
 </div>

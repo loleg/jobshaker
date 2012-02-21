@@ -22,6 +22,7 @@ body { background-color:#fff; text-align:center; }
 .button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
 .button.small span { font-size:10pt; padding:2pt; }
 .button.newpost { position:absolute; right:4px; background:#f33; color:white; border:2px solid white; }
+.button.current { opacity:0.5; border: 2px solid yellow; }
 
 .index > div { margin:2em 0; }
 
