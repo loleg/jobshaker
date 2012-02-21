@@ -56,10 +56,14 @@
 		{{ form.sex.errors }}
 		<label for="id_sex">Sex:</label>
 		{{ form.sex }}
+	</p>
+	<p class="note">
+		Write a few words to make an impression with your profile,
+		but do not share any personal identity details:
 	</p><p>
 		{{ form.aboutme.errors }}
-		<label for="id_aboutme">About myself:</label> 
-		<textarea id="id_aboutme" rows="10" cols="40" name="aboutme"></textarea>
+		<label for="id_aboutme">About me:</label> 
+		{{ form.aboutme }}
 	</p>
 	<center>
 		<input class="btnCancel" type="reset" name="cancel" value="Cancel">
