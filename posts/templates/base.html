@@ -1,18 +1,39 @@
-<!DOCTYPE html>
-<html> 
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
   <title>Jobshaker {% block title %}home{% endblock %}</title> 
+  <meta name="description" content="Find the right partner for job sharing or building your business">
+  <meta name="viewport" content="width=device-width">
 
   <!-- {{ STATIC_URL }} -->
+  <link type="text/css" href="/static/css/sunny/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
   <link href="/static/main.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/static/js/lib/modernizr-2.0.6.min.js"></script>
+  <script type="text/javascript">
+    Modernizr.load([
+      {
+         load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+         complete: function() {
+            if ( !window.jQuery ) {
+               Modernizr.load('/static/js/lib/jquery-1.7.1.min.js');
+            }
+            Modernizr.load([
+		  		'/static/js/lib/jquery-ui-1.8.17.custom.min.js',
+		  		'/static/js/main.js'
+      		]);
+         }
+      }
+    ]);
+  </script>
 
-	<link type="text/css" href="/static/css/sunny/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
-	<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="/static/js/jquery-ui-1.8.17.custom.min.js"></script>
-	<script type="text/javascript" src="/static/main.js"></script>
-	
-  {% block head %}{% endblock %}
-  
+  {% block head %}{% endblock %}  
+
 </head> 
 <body> 
  
@@ -46,7 +67,9 @@
     <a href="/about" class="about button"><em>about</em> jobshaker</a>
     <a href="/links" class="links button">useful <em>links</em></a>
     <a href="/policy" class="policy button"><em>privacy</em> policy</a>
-  </div> 
- 
+  </div>
+  
+  <a href="http://www.surveymonkey.com/s/5V8RJGN" title="Your feedback is important!" id="feedback-badge"><span>Feedback</span></a> 
+
 </body>
 </html>

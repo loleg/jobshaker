@@ -1,4 +1,5 @@
 .DS_Store
+.epio-app
 *.tmproj
 *.pyc
 db/*
