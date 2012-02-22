@@ -26,7 +26,7 @@ body { background-color:#fff; text-align:center; }
 
 .index > div { margin:2em 0; }
 
-.index { background:#fff url(images/2424445668_8dfd951507_b.jpg) no-repeat bottom; margin:0; padding:1em; border-radius:7pt; }
+.index { background:#fff url(images/2424445668_8dfd951507_b.jpg) no-repeat; background-size:100%; margin:0; padding:1em; border-radius:7pt; }
 
 .index a, .menu a { color:inherit; text-decoration:none; }
 
