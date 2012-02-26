@@ -56,11 +56,12 @@
 
 	<p>Posted on <date>{{ post.pub_date }}</date></p>
 	
-	<center>
-	{% if my_post %}
-		<a href="/posts/{{ post.id }}/edit" class="edit button small">Edit my post</a>
-	{% endif %}
+	<p style="text-align:right">
 		<a href="/" class="button small">Back to Board</a>
-	</center>
+	{% if my_post %}
+		<a href="/posts/{{ post.id }}/edit" class="edit button">Edit my post</a>
+	{% endif %}
+	</p>
+	
 </div>
 {% endblock %}

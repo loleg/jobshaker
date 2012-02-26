@@ -80,7 +80,6 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 /* project */
 .intent3 { background-color:#fe9; border:3px solid #ff3; }
 
-.profile a.edit { float:right; }
 .profile img { float:right; }
 .profile p { margin-left:1em; }
 .profile p i { display:block; color:#999; border-bottom:1px dashed #ddd; }

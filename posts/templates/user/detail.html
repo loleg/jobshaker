@@ -36,9 +36,12 @@
 		{{ userprofile.aboutme }}
 	</p>
 
+	<p style="text-align:right">
+		<a href="/" class="button small">Back to Board</a>
 	{% if my_profile %}
-		<p><a href="/accounts/edit/" class="button edit">Edit Profile</a></p>
+		<a href="/accounts/edit/" class="button edit">Edit Profile</a>
 	{% endif %}
+	</p>
 
 </div>
 {% endblock %}
