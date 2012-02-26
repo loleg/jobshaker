@@ -24,6 +24,7 @@ def index(request):
 # Post detail
 def detail(request, post_id):
 	try:
+		up = UserProfile.objects.get(user=request.user.id)
 		p = Post.objects.get(pk=post_id)
 		l_user = l_post = ''
 		if p.user.postcode:
@@ -33,7 +34,8 @@ def detail(request, post_id):
 	return render_to_response('posts/detail.html', {
 			'post': p, 'where': p.location, 'place': l_user, 
 			'replies': Reply.objects.filter(post=p), 
-			'my_post': (p.user.user.id == request.user.id)
+			'my_post': (p.user.id == up.id),
+			'user_id': up.id
 		}, context_instance=RequestContext(request))
 
 # Add new post
@@ -102,6 +104,19 @@ def reply(request, post_id, reply_id=-1):
 			'post': p, 'form': form
 		}, context_instance=RequestContext(request))
 
+# Delete a reply
+def reply_delete(request, post_id, reply_id):
+	try:
+		up = UserProfile.objects.get(user=request.user.id)
+		p = Post.objects.get(pk=post_id)
+		r = Reply.objects.get(pk=reply_id)
+	except UserProfile.DoesNotExist:
+		return edit_profile(request)
+	if p.user_id == up.id or r.user_id == up.id:
+		r.delete()
+		messages.success(request, 'Your reply was deleted.')
+	return redirect('/posts/%d' % p.id)
+		
 # View my profile
 def my_profile(request):
 	try:

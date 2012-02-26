@@ -111,7 +111,9 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 .note { margin:0; width:30em; }
 
 .doc { padding:0 2em; }
+
 .feedback {color: black; background: yellow; padding: 1em; font-weight: bold;}
+.fancybeta { position:absolute; top:0px; right:0px; }
 
 item, tr { background:#fff;
        border:2px solid #4C332E;border-radius:4pt; text-align:left;

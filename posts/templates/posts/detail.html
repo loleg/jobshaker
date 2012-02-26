@@ -46,6 +46,11 @@
 			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>
 			</td>
 			<td width="60%">{{ reply.comment }}</td>
+			{% if my_post or reply.user.id = user_id %}
+				<td style="background:#fff">
+				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}/delete" class="btnDelete button small">&nbsp;X&nbsp;</a>
+				</td>
+			{% endif %}
 		</tr>
 	{% endfor %}
 	</table>
