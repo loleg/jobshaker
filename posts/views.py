@@ -59,7 +59,7 @@ def edit(request, post_id):
 	if form.is_valid():
 		post = form.save(commit=False)
 		post.user_id = up.id
-		post.save()
+		form.save_m2m() # Saves tags
 		messages.success(request, 'Your post has been saved.')
 		return redirect('/posts/%d' % post.id)
 	return render_to_response('posts/edit_post.html', {

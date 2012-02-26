@@ -31,7 +31,7 @@
 	<p>{{ post.comment }}</p>
 	
 	{% if post.tags.all|length > 0  %}
-	<ul class="tags">Tags: 
+	<ul class="tags">Keywords: 
 			{% for tag in post.tags.all %}
 			<li>{{ tag }}</li>
 			{% endfor %}

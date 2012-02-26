@@ -31,10 +31,11 @@
 			{{ form.comment }}
 		</p><p>
 			{{ form.tags.errors }}
-			<label for="id_tags">Relevant tags:
+			<label for="id_tags">Keywords:
 			<span class="required">*</span></label>
 			{{ form.tags }}
-		</p><p style="width:40em; margin:0; padding:0 0 4pt;">
+			<span class="helptext">Separated with comma, ex: design, office, teaching</span>
+		</p><p class="helptext2">
 			<i>The following fields may be left blank. By default, your post is valid for all of Switzerland, from today, forever. Be more specific depending on your needs:</i>
 		</p><p>
 			{{ form.location.errors }}

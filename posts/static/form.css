@@ -81,5 +81,15 @@ input.btnSend  {
 	background:#ED581E;
 }
 
+.helptext { 
+    margin-left:140px; display:block; clear:both;
+    color: #777; font-size: 85%;
+}
+
+.helptext2 {
+		width:40em; margin:0; padding:0 0 6pt;
+}
+
 .required {color: red;}
+
 .error, .errorlist { color:red; font-style:italic; }

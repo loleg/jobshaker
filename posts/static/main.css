@@ -50,6 +50,8 @@ body { background-color:#fff; text-align:center;
 h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 		float: left; margin-bottom: 0.3em; margin-top: -1.8em;}
 
+#jobsearch { float: right; margin-top: -3em; }
+
 .container { background:#F7E492 url(images/corkboard.jpg); 
 		z-index:2; position:relative; } 
 
@@ -88,7 +90,8 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 .postdetail p { text-align:center; }
 .postdetail p i { display:block; color:#999; border-bottom:1px dashed #ddd; }
 
-.postcomment { background-color:#fff; padding:2em; padding-bottom:4em; 
+.postcomment { background-color:#fff; 
+	min-height: 10em; padding: 1em 2em;
 	border-bottom:1px solid black; border-right:1px solid black; }
 .postcomment p { text-align:left; }
 .postcomment .reply { float: right; right: -1em; }
