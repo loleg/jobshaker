@@ -30,6 +30,13 @@
 			<span class="required">*</span></label>
 			{{ form.comment }}
 		</p><p>
+			{{ form.tags.errors }}
+			<label for="id_tags">Relevant tags:
+			<span class="required">*</span></label>
+			{{ form.tags }}
+		</p><p style="width:40em; margin:0; padding:0 0 4pt;">
+			<i>The following fields may be left blank. By default, your post is valid for all of Switzerland, from today, forever. Be more specific depending on your needs:</i>
+		</p><p>
 			{{ form.location.errors }}
 			<label for="id_location">Location:</label> 
 			{{ form.location }}

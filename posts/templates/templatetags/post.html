@@ -9,5 +9,11 @@
 		in <b>{{ post.location }}</b> 
 	{% endif %}
 	</a>
-	&ldquo;{{ post.comment|truncatewords:6 }}&rdquo;
+	{% if post.tags.all|length > 0  %}
+	<ul class="tags" style="margin:0; padding:0;">
+			{% for tag in post.tags.all %}
+			<li>{{ tag }}</li>
+			{% endfor %}
+	</ul>
+	{% endif %}
 </item>

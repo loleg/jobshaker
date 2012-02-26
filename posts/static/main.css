@@ -87,12 +87,19 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 
 .postdetail p { text-align:center; }
 .postdetail p i { display:block; color:#999; border-bottom:1px dashed #ddd; }
+
 .postcomment { background-color:#fff; padding:2em; padding-bottom:4em; 
 	border-bottom:1px solid black; border-right:1px solid black; }
 .postcomment p { text-align:left; }
 .postcomment .reply { float: right; right: -1em; }
 
-.notice { margin:1em; padding:1pt; background:#eee; border-radius:10pt; opacity:0.7; }
+.tags { list-style:none; display:inline; color:#999; }
+.tags li { list-style:none; display:inline; 
+	background:#FFC; color:#000; 
+	border-radius:8pt; padding: 2pt 4pt;}
+
+.notice { margin:1em; padding:1pt; 
+	background:#eee; border-radius:10pt; opacity:0.7; }
 
 .note { margin:0; width:30em; }
 

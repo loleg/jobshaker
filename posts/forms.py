@@ -23,3 +23,8 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ['user']
+    # TODO: validate postcode (1000 - 9999)
+    # TODO: validate birth year
+    #class clean_birth_year(self):
+		#	if self and (self < 1910 or self > 2010):
+		#		raise forms.ValidationError('Invalid birth year')
