@@ -8,6 +8,9 @@
 <div class="twocolumn">
 <h3>My Posts</h3>
 
+<a href="/posts/new" class="newpost button" style="left:4px">New Post +</a>
+	<br /><br />
+
 {% for p in myposts %}
 <div class="whitebox">
 	<date>{{ p.pub_date }}</date><br>
@@ -38,6 +41,8 @@
 
 <div class="twocolumn">
 <h3>My Replies</h3>
+
+	<br /><br />
 
 {% for p in replyposts %}
 <div class="whitebox">

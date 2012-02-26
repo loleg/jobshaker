@@ -11,7 +11,7 @@
 	</span>
 	
 	<a href="/userprofile/{{ post.user.id }}">{{ post.user }}</a>,
-	<b>{{ post.user.profession }}</b> 
+	<b>{{ post.user.profession }}</b>,
 	is
 	{{ post.intent }}
 	{% if where %}
@@ -56,10 +56,11 @@
 
 	<p>Posted on <date>{{ post.pub_date }}</date></p>
 	
-	{% if my_post %}
 	<center>
+	{% if my_post %}
 		<a href="/posts/{{ post.id }}/edit" class="edit button small">Edit my post</a>
+	{% endif %}
+		<a href="/" class="button small">Back to Board</a>
 	</center>
-	{% endif %}	
 </div>
 {% endblock %}

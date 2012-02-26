@@ -1,4 +1,5 @@
-body { background-color:#fff; text-align:center; }
+body { background-color:#fff; text-align:center; 
+			 font-family: Segoe UI,Arial,sans-serif;}
 
 .logo { color:transparent; font-size:0px; 
         background:url(images/logo4.png) no-repeat top center;
@@ -21,7 +22,7 @@ body { background-color:#fff; text-align:center; }
 .button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
 .button.policy { color:#000; background:#E5DCDA; border: 1px solid #4C332E; border-radius: 5px; }
 .button.small span { font-size:10pt; padding:2pt; }
-.button.newpost { position:absolute; right:4px; background:#f33; color:white; border:2px solid white; }
+.button.newpost { position:absolute; right:4px; width:8em; background:#f33; color:white; border:2px solid white; }
 .button.current { opacity:0.5; border: 2px solid yellow; }
 
 .index > div { margin:2em 0; }
@@ -31,6 +32,10 @@ body { background-color:#fff; text-align:center; }
 .index a, .menu a { color:inherit; text-decoration:none; }
 
 .index > div {font:10pt verdana, sans serif; line-height:16pt; color:white; }
+
+.messages { background:yellow; color:#4b2;
+    font-weight: bold; list-style: none;
+    margin: -2em 0 2.5em; padding: 3pt; }
 
 .infotext { text-align: left;	padding:1pt 2em; background: #F5ECEA; opacity:0.8; border-radius: 5px; color:black !important; margin:0; }
 
@@ -45,9 +50,7 @@ body { background-color:#fff; text-align:center; }
 h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 		float: left; margin-bottom: 0.3em; margin-top: -1.8em;}
 
-.twocolumn h3 { float: none; margin-bottom: 0.5em; }
-
-.container { background:#F7E492 url(images/corkboard.jpg) 100% 100%; 
+.container { background:#F7E492 url(images/corkboard.jpg); 
 		z-index:2; position:relative; } 
 
 .container, .whitebox { border-radius:10pt; padding:4pt; }
@@ -60,7 +63,9 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 
 .twocolumn { width:45%; display:inline-block; vertical-align:top; }
 
-.twocolumn:last-child { border-left: 2px solid white; }
+.twocolumn:first-child { border-right: 2px dashed white; }
+
+.twocolumn h3 { float: none; margin-bottom: 0.5em; }
 
 .ui-datepicker { font-size:10pt !important; }
 
@@ -88,7 +93,7 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 .postcomment p { text-align:left; }
 .postcomment .reply { float: right; right: -1em; }
 
-.notice { margin:1em; background:#eee; border-radius:10pt; opacity:0.7; }
+.notice { margin:1em; padding:1pt; background:#eee; border-radius:10pt; opacity:0.7; }
 
 .note { margin:0; width:30em; }
 

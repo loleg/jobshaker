@@ -139,7 +139,7 @@ def profile(request, userprofile_id):
 	elif user_languages != '':
 		user_languages = user_languages[:-2]
 	if up.birth_year:
-		user_age = date.today().year - up.birth_year
+		user_age = date.today().year - up.birth_year - 1
 	return render_to_response('user/detail.html', {
 			'userprofile': up, 'location': user_location,
 			'languages': user_languages, 'age': user_age,
