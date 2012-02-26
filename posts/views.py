@@ -44,6 +44,7 @@ def add(request):
 		post = form.save(commit=False)
 		post.user_id = up.id
 		post.save()
+		form.save_m2m() # Saves tags
 		messages.success(request, 'Thanks for posting!')
 		return redirect('/posts/%d' % post.id)
 	form.initial['postcode'] = up.postcode
@@ -51,7 +52,7 @@ def add(request):
 			'form': form
 		}, context_instance=RequestContext(request))
 	
-# Edut a post
+# Edit a post
 def edit(request, post_id):
 	up = UserProfile.objects.get(user=request.user.id)
 	post = get_object_or_404(Post, id=post_id)
@@ -59,12 +60,23 @@ def edit(request, post_id):
 	if form.is_valid():
 		post = form.save(commit=False)
 		post.user_id = up.id
+		post.save()
 		form.save_m2m() # Saves tags
 		messages.success(request, 'Your post has been saved.')
 		return redirect('/posts/%d' % post.id)
 	return render_to_response('posts/edit_post.html', {
 			'form': form, 'post': post
 		}, context_instance=RequestContext(request))
+
+# Delete (TODO: archive) a post
+def delete(request, post_id):
+	up = UserProfile.objects.get(user=request.user.id)
+	post = get_object_or_404(Post, id=post_id)
+	form = PostForm(request.POST or None, instance=post)
+	if post.user_id == up.id:
+		post.delete()
+		messages.success(request, 'Your post has been removed.')
+	return redirect('/')
 
 # Replies to post
 def reply(request, post_id, reply_id=-1):

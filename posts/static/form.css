@@ -80,6 +80,7 @@ input.btnSend  {
 	box-shadow:1px 1px 2px #ccc;
 	background:#ED581E;
 }
+input.disabled { background:#ccc; }
 
 .helptext { 
     margin-left:140px; display:block; clear:both;

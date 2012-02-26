@@ -8,7 +8,6 @@
 {% endblock %}
 
 {% block content %}
-<h3>Post a Jobshake</h3>
 <div class="whitebox">
 	<form action="" method="post">{% csrf_token %}
 	<fieldset id="profileform">
@@ -54,9 +53,9 @@
 			<input class="btnCancel" type="reset" name="cancel" value="Cancel">
 			<input class="btnSend" type="submit" name="submit" value="Save ">
 		</center>
-		{% if form.intent.data %}
+		{% if post %}
 		<center><br/>
-			<a href="/posts/4/delete"">Delete this post</a>
+			<a href="/posts/{{ post.id }}/delete"">Delete this post</a>
 		</center>
 		{% endif %}
 	</fieldset>

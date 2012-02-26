@@ -1,9 +1,14 @@
 $(document).ready(function () {
 
+	// Initialize UI components
 	$(".datePicker").datepicker();
 	$(".button").button();
+	
+	// Setup form submits
 	$(".btnCancel").click(function() { window.history.back(); });
+	$(".btnSend").click(function() { this.disabled = true; $(this).addClass("disabled"); });
 
+	// Menu navigation
 	switch (document.location.pathname) {
 	case '/':
 		$('.menu .home').addClass('current'); break;
@@ -13,8 +18,9 @@ $(document).ready(function () {
 		$('.menu .posts').addClass('current'); break;
 	}
 	
+	// Keyword search field
 	$("#jobsearch input").on("keyup", function() {
-		var searchterm = $.trim(this.value);
+		var searchterm = $.trim(this.value.toLowerCase());
 		var searchflds = ".tags li:contains('" + searchterm + "')";
 		$(".post").each(function() {
 			if (searchterm == "" || $(this).find(searchflds).length > 0) {
