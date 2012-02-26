@@ -1,13 +1,14 @@
 from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.contrib import messages
 from django.http import Http404
 from datetime import date
 
-from information.models import Location
-
+from information.models import *
 from posts.models import *
 from posts.forms import *
 
+# Home page
 def index(request):
 	if request.user.id:
 		try:
@@ -19,13 +20,14 @@ def index(request):
 		'latest_post_list': latest_post_list,
 		'is_at_home': True
 	}, context_instance=RequestContext(request))
-	
+
+# Post detail
 def detail(request, post_id):
 	try:
 		p = Post.objects.get(pk=post_id)
 		l_user = l_post = ''
 		if p.user.postcode:
-			l_user = Location.objects.filter(plz=p.user.postcode)[0]
+			l_user = get_location_by_plz(p.user.postcode)
 	except Post.DoesNotExist:
 		raise Http404
 	return render_to_response('posts/detail.html', {
@@ -34,6 +36,7 @@ def detail(request, post_id):
 			'my_post': (p.user.user.id == request.user.id)
 		}, context_instance=RequestContext(request))
 
+# Add new post
 def add(request):
 	up = UserProfile.objects.get(user=request.user.id)
 	form = PostForm(request.POST or None)
@@ -41,13 +44,14 @@ def add(request):
 		post = form.save(commit=False)
 		post.user_id = up.id
 		post.save()
+		messages.success(request, 'Thanks for posting!')
 		return redirect('/posts/%d' % post.id)
-	# Populate form
 	form.initial['postcode'] = up.postcode
 	return render_to_response('posts/edit_post.html', {
 			'form': form
 		}, context_instance=RequestContext(request))
 	
+# Edut a post
 def edit(request, post_id):
 	up = UserProfile.objects.get(user=request.user.id)
 	post = get_object_or_404(Post, id=post_id)
@@ -56,13 +60,13 @@ def edit(request, post_id):
 		post = form.save(commit=False)
 		post.user_id = up.id
 		post.save()
-		msg = "Post updated successfully"
-		#messages.success(request, msg, fail_silently=True)
+		messages.success(request, 'Your post has been saved.')
 		return redirect('/posts/%d' % post.id)
 	return render_to_response('posts/edit_post.html', {
 			'form': form, 'post': post
 		}, context_instance=RequestContext(request))
-	
+
+# Replies to post
 def reply(request, post_id, reply_id=-1):
 	try:
 		up = UserProfile.objects.get(user=request.user.id)
@@ -80,11 +84,13 @@ def reply(request, post_id, reply_id=-1):
 		if r != None:
 			reply.reply_to = r
 		reply.save()
+		messages.success(request, 'Your message was sent.')
 		return redirect('/posts/%d' % p.id)
 	return render_to_response('posts/edit_reply.html', {
 			'post': p, 'form': form
 		}, context_instance=RequestContext(request))
 
+# View my profile
 def my_profile(request):
 	try:
 		up = UserProfile.objects.get(user=request.user.id)
@@ -92,6 +98,7 @@ def my_profile(request):
 	except UserProfile.DoesNotExist:
 		return edit_profile(request)
 
+# View my replies
 def my_replies(request):
 	try:
 		up = UserProfile.objects.get(user=request.user.id)
@@ -111,11 +118,12 @@ def my_replies(request):
 			}, context_instance=RequestContext(request))
 	except UserProfile.DoesNotExist:
 		return edit_profile(request)
-			
+
+# View a profile		
 def profile(request, userprofile_id):
 	up = get_object_or_404(UserProfile, pk=userprofile_id)
 	if up.postcode:
-		user_location = Location.objects.filter(plz=up.postcode)[0]
+		user_location = get_location_by_plz(up.postcode)
 	user_languages = ''
 	user_age = ''
 	if up.german:
@@ -139,21 +147,30 @@ def profile(request, userprofile_id):
 			'my_profile': (up.user.id == request.user.id)
 		}, context_instance=RequestContext(request))
 
+# View a user (via profile)
 def user(request, user_id):
 	up = get_object_or_404(UserProfile, user=user_id)
 	return profile(request, up.id)
 
+# Edit my profile
 def edit_profile(request):
+	newUser = False
 	try:
 		up = UserProfile.objects.get(user=request.user.id)
 		form = UserProfileForm(request.POST or None, instance=up)
 	except UserProfile.DoesNotExist:
+		newUser = True
 		form = UserProfileForm(request.POST or None)
 	if form.is_valid():
 		user = form.save(commit=False)
 		user.user_id = request.user.id
 		user.save()
-		return redirect('/userprofile/')
+		if newUser:
+			messages.success(request, 'Your profile has been created, now check out what people like you have been posting:')
+			return redirect('/')
+		else:
+			messages.success(request, 'Profile update saved.')
+			return redirect('/userprofile/')
 	return render_to_response('user/edit_profile.html', {
 			'form': form
 		}, context_instance=RequestContext(request))

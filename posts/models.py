@@ -40,6 +40,8 @@ class Post(models.Model):
 		return self.intent.name
 	def was_published_today(self):
 		return self.pub_date.date() == datetime.date.today()
+	class Meta:
+		ordering = ['-pub_date', 'location']
 	
 class Reply(models.Model):
 	pub_date = models.DateTimeField('date replied', auto_now_add=True)
@@ -52,3 +54,5 @@ class Reply(models.Model):
 	comment = models.TextField()
 	def __unicode__(self):
 		return self.comment
+	class Meta:
+		ordering = ['-pub_date']
