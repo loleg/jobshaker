@@ -57,4 +57,4 @@ class Reply(models.Model):
 	def __unicode__(self):
 		return self.comment
 	class Meta:
-		ordering = ['-pub_date']
+		ordering = ['pub_date']

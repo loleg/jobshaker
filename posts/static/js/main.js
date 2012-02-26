@@ -6,7 +6,8 @@ $(document).ready(function () {
 	
 	// Setup form submits
 	$(".btnCancel").click(function() { window.history.back(); });
-	$(".btnSend").click(function() { this.disabled = true; $(this).addClass("disabled"); });
+	$(".btnSend").click(function() { $(this).addClass("disabled"); });
+	$(".btnDelete").click(function() { return window.confirm("Are you sure you wish to delete this?"); });
 
 	// Menu navigation
 	switch (document.location.pathname) {

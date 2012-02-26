@@ -38,30 +38,21 @@
 	</ul>
 	{% endif %}
 	
-	{% if not my_post %}
+	<table class="replies">
+	{% for reply in replies %}
+		<tr>
+			<td>
+			{{ reply.pub_date|date:"d.m.Y" }}
+			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>
+			</td>
+			<td width="60%">{{ reply.comment }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+	
+	{% if not my_post or replies|length > 0 %}
 		<a href="/posts/{{ post.id }}/reply" class="reply button">Reply</a>
 	{% endif %}
-	
-	<ul class="replies">
-	{% for reply in replies %}
-		<li>
-			{% if reply.like %}
-				<b>:)</b> 
-			{% endif %}
-			{% if reply.flag %}
-				<b>:(</b> 
-			{% endif %}
-			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>:
-			"{{ reply.comment }}"
-			{% if not my_post and reply.user = post.user %}
-				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}" class="reply button small">Reply</a>
-			{% endif %}
-			{% if my_post and not reply.user = post.user %}
-				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}" class="reply button small">Reply</a>
-			{% endif %}
-		</li>
-	{% endfor %}
-	</ul>
 </div>
 	
 	<p>Posted on <date>{{ post.pub_date }}</date></p>

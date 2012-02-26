@@ -90,11 +90,15 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 .postdetail p { text-align:center; }
 .postdetail p i { display:block; color:#999; border-bottom:1px dashed #ddd; }
 
+.replies { width:100%; margin:1em 0; }
+.replies td { font-size:88%; }
+.replies tr { background:#e3e3e3; }
+.replies tr:nth-child(odd) { background:#f0f0f0; }
+
 .postcomment { background-color:#fff; 
 	min-height: 10em; padding: 1em 2em;
 	border-bottom:1px solid black; border-right:1px solid black; }
 .postcomment p { text-align:left; }
-.postcomment .reply { float: right; right: -1em; }
 
 .tags { list-style:none; display:inline; color:#999; }
 .tags li { list-style:none; display:inline; 
