@@ -28,7 +28,7 @@
 	</p>
 
 <div class="postcomment">
-	<p>{{ post.comment }}</p>
+	<p>{{ post.comment|striptags|urlize|linebreaks }}</p>
 	
 	{% if post.tags.all|length > 0  %}
 	<ul class="tags">Keywords: 

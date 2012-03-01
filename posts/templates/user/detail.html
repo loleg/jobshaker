@@ -33,7 +33,7 @@
 		{{ languages }}
 	</p><p>
 		<i>About me</i>
-		{{ userprofile.aboutme }}
+		{{ userprofile.aboutme|striptags|urlize|linebreaks }}
 	</p>
 
 	<p style="text-align:right">
