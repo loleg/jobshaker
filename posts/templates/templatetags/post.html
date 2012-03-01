@@ -1,5 +1,5 @@
 <item class="post intent{{ post.intent.id }}"> 
-	<date>{{ post.pub_date }}</date>
+	<date>{{ post.pub_date|timesince }} ago</date>
 	<a href="/userprofile/{{ post.user.id }}/">
 	<b>{{ post.user }}</b></a> 
 	is

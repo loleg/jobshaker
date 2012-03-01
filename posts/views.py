@@ -15,7 +15,7 @@ def index(request):
 			up = UserProfile.objects.get(user=request.user.id)
 		except UserProfile.DoesNotExist:
 			return edit_profile(request)
-	latest_post_list = Post.objects.all().order_by('-pub_date')[:5]
+	latest_post_list = Post.objects.all().order_by('-pub_date')[:30]
 	return render_to_response('posts/index.html', {
 		'latest_post_list': latest_post_list,
 		'is_at_home': True

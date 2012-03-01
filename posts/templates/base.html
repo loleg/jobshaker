@@ -64,9 +64,20 @@
     <a href="/about" class="about button"><em>about</em> jobshaker</a>
     <a href="/links" class="links button">useful <em>links</em></a>
     <a href="/policy" class="policy button"><em>privacy</em> policy</a>
+    <a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog (powered by UserVoice)" class="help button"><em>help</em> &amp; feedback</a>
   </div>
   
-  <a href="http://www.surveymonkey.com/s/5V8RJGN" title="Your feedback is important!" class="feedback" target="_blank"><span>Jobshaker Survey</span><img class="fancybeta" src="/static/images/fancy-beta.png"></a> 
+  <a href="http://www.surveymonkey.com/s/5V8RJGN" title="Your feedback is important!" class="feedback" target="_blank"><span>Jobshaker Survey</span><img class="fancybeta" src="/static/images/fancy-beta.png"></a>
+  
+<script type="text/javascript">
+  // User Voice widget
+  var uvOptions = {};
+  (function() {
+	var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+	uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/1wRt0CVfEUhctUmdBzpRwQ.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
 
 </body>
 </html>

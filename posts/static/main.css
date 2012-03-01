@@ -64,16 +64,18 @@ h3 { font:16pt verdana,sans-serif; color:#4C332E; margin-bottom: 0.3em;
 .container, .container input { font:10pt verdana,sans-serif; line-height:1.5em;}
 
 .twocolumn { width:45%; display:inline-block; vertical-align:top; }
-
 .twocolumn:first-child { border-right: 2px dashed white; }
-
 .twocolumn h3 { float: none; margin-bottom: 0.5em; }
+.twocolumn .whitebox ul { list-style:none; padding:0; }
+.twocolumn .intent { text-decoration:none; border-bottom:1px solid blue; font-size:110% }
 
 .ui-datepicker { font-size:10pt !important; }
 
-.post { display:inline-block; width:200pt; }
+.post { width:200pt; height:6.5em; 
+	display:inline-block; vertical-align:top; overflow:hidden; }
 .post a {color:#AB283C; text-decoration: none;}
 .post .gravatar { float:left; margin-right:1em; }
+.post date { opacity:0.7; }
 
 /* business partner */
 .intent1 { background-color:#cef; border:3px solid #33f; }

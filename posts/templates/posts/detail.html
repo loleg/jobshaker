@@ -40,23 +40,29 @@
 	
 	<table class="replies">
 	{% for reply in replies %}
+	{% if my_post or reply.user.id = user_id %}
 		<tr>
 			<td>
 			{{ reply.pub_date|date:"d.m.Y" }}
 			<a href="/userprofile/{{ reply.user.id }}">{{ reply.user }}</a>
 			</td>
 			<td width="60%">{{ reply.comment }}</td>
-			{% if my_post or reply.user.id = user_id %}
+			{% if reply.user.id = user_id %}
 				<td style="background:#fff">
 				<a href="/posts/{{ post.id }}/reply/{{ reply.id }}/delete" class="btnDelete button small">&nbsp;X&nbsp;</a>
 				</td>
 			{% endif %}
 		</tr>
+	{% endif %}
 	{% endfor %}
 	</table>
 	
+	<div class="postsummary">
+	{{ replies|length }} replies
+	</div>
+	
 	{% if not my_post or replies|length > 0 %}
-		<a href="/posts/{{ post.id }}/reply" class="reply button">Reply</a>
+		<a href="/posts/{{ post.id }}/reply" class="reply button">Private Reply</a>
 	{% endif %}
 </div>
 	
