@@ -1,2 +1,2 @@
-https://bitbucket.org/ubernostrum/django-registration/get/tip.tar.bz2
+https://bitbucket.org/ubernostrum/django-registration/get/v0.8.tar.bz2
 django-taggit
