@@ -1,7 +1,12 @@
 Django==1.4.5
 argparse==1.2.1
 distribute==0.6.34
+dj-database-url==0.3.0
+dj-static==0.0.6
 django-registration==0.8
 django-taggit==0.12
+django-toolbelt==0.0.1
 gunicorn==19.1.0
+psycopg2==2.5.3
+static3==0.5.1
 wsgiref==0.1.2
