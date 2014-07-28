@@ -19,18 +19,21 @@
 
 	<p>
 		{{ form.profession.errors }}
-		<label for="id_profession">Profession: 
+		<label for="id_profession">Occupation: 
 		<span class="required">*</span></label>
 		{{ form.profession }}
 	</p><p>
 		{{ form.postcode.errors }}
-		<label for="id_postcode">Postcode:  
+		<label for="id_postcode">Location:  
 		<span class="required">*</span></label>
 		{{ form.postcode }}
 	</p>
 	<div class="language">
 		<b>Languages:</b>
-		<p>	
+		<p>
+			<label for="id_english">English:</label>
+			{{ form.english }}
+		</p><p>	
 			<label for="id_german">German:</label>
 			{{ form.german }}
 		</p><p>
@@ -40,22 +43,21 @@
 			<label for="id_italian">Italian:</label>
 			{{ form.italian }}
 		</p><p>
-			<label for="id_english">English:</label>
-			{{ form.english }}
-		</p><p>
 			{{ form.other_lang.errors }}
 			<label for="id_other_lang">Other:</label>
 			{{ form.other_lang }}
 		</p>
 	</div>
 	<p>
-		{{ form.birth_year.errors }}
-		<label for="id_birth_year">Year of birth:</label>
-		{{ form.birth_year }}
-	</p><p>
-		{{ form.sex.errors }}
-		<label for="id_sex">Sex:</label>
-		{{ form.sex }}
+		<label for="id_profession">Interests: 
+		<span class="required">*</span></label>
+		<select multiple="multiple">
+		<option>Open Humanities</option>
+		<option>Open Science</option>
+		<option>Open Politics</option>
+		<option>Open Education</option>
+		<option>Open Economics</option>
+		</select>
 	</p>
 	<p class="note">
 		Write a few words to make an impression with your profile,

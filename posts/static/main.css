@@ -1,13 +1,14 @@
 body { background-color:#fff; text-align:center; 
 			 font-family: Segoe UI,Arial,sans-serif;}
 
-.logo { color:transparent; font-size:0px; 
-        background:url(images/logo4.png) no-repeat top center;
+.logo { /*color:transparent; font-size:0px; 
+        background:url(images/logo4.png) no-repeat top center; */
+        font-family: Ubuntu; font-size: 60px; margin:0;
         width:262px; height:130px;
         width:100%
         }
 
-.headline { color:#a77; font:12pt verdana,sans-serif; 
+.headline { color:#090; font:12pt verdana,sans-serif; 
             padding-top:0; margin:-10pt 0 0; padding-bottom:10pt; }
 
 .menu { margin:1em 0; height:5em; }
@@ -16,7 +17,8 @@ body { background-color:#fff; text-align:center;
 
 .button span { font-size:12pt; font-weight:normal; }
 .button em { font-style:normal; font-weight:bold;}
-.button.create { font-size: 16pt; padding: 1em; color:#fff; background:#ED581E; border: 2px solid #4C332E; border-radius: 5px; clear: both}
+.button.create, .button.login { padding:1em; display: inline-block; clear:none;}
+.button.create { background:#9c9; }
 .button.login  { color:#4C532E; }
 .button.about  { color:#000; background:#FFD615; border: 1px solid #4C332E; border-radius: 5px;}
 .button.links  { color:#000; background:#F0AF1D; border: 1px solid #4C332E; border-radius: 5px; }
@@ -27,7 +29,9 @@ body { background-color:#fff; text-align:center;
 
 .index > div { margin:2em 0; }
 
-.index { background:#fff url(images/2424445668_8dfd951507_b.jpg) no-repeat; background-size:100%; margin:0; padding:1em; border-radius:7pt; }
+.index { background:#fff url(images/okcon1.jpg) no-repeat; 
+    background-position: 0 -100px;
+    background-size:100%; margin:0; padding:1em; border-radius:7pt; }
 
 .index a, .menu a { color:inherit; text-decoration:none; }
 
@@ -39,8 +43,8 @@ body { background-color:#fff; text-align:center;
 
 .infotext { text-align: left;	padding:1pt 2em; background: #F5ECEA; opacity:0.8; border-radius: 5px; color:black !important; margin:0; }
 
-.signup div {font:10pt verdana,sans-serif; /*color:#4C332E;*/
-    width:12em; display: inline-block; vertical-align: top;}
+.signup div {font:10pt verdana,sans-serif;
+    display: inline-block; vertical-align: top;}
     
 .login div {font:8pt verdana, sans-serif; /*color:#4C332E;*/
     width:12em; display: inline-block; vertical-align: middle;}

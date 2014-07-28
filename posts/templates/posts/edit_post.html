@@ -11,7 +11,7 @@
 <div class="whitebox">
 	<form action="" method="post">{% csrf_token %}
 	<fieldset id="profileform">
-		<legend>Jobshaker Post</legend>
+		<legend>Post a project</legend>
 
 {% if form.errors %}
 <p class="error">There were errors in your post, please have a look below and correct them.</p>
@@ -25,7 +25,7 @@
 			{{ form.intent }}
 		</p><p>
 			{{ form.comment.errors }}
-			<label for="id_comment">Describe your plans and the ideal partner:
+			<label for="id_comment">Describe your plans and the ideal partner/team:
 			<span class="required">*</span></label>
 			{{ form.comment }}
 		</p><p>
@@ -35,7 +35,7 @@
 			{{ form.tags }}
 			<span class="helptext">Separated with comma, ex: design, office, teaching</span>
 		</p><p class="helptext2">
-			<i>The following fields may be left blank. By default, your post is valid for all of Switzerland, from today, forever. Be more specific depending on your needs:</i>
+			<i>The following fields may be left blank. You can be more specific depending on your needs:</i>
 		</p><p>
 			{{ form.location.errors }}
 			<label for="id_location">Location:</label> 
